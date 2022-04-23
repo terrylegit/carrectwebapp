@@ -1,0 +1,305 @@
+﻿a {
+    text-decoration: none !important;
+}
+
+.form_datlich {
+    padding: 0px 20px;
+}
+
+    .form_datlich i {
+        position: absolute;
+        left: 1px;
+        top: 50%;
+        transform: translate(10px, -50%);
+        font-size: 20px;
+    }
+
+.form_datlich_inputbox {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.form_datlich input {
+    width: 100%;
+    background-color: #eee;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    padding-left: 40px;
+}
+
+.nextbtn {
+    display: block;
+    width: 100%;
+    padding: 0px 20px;
+}
+
+    .nextbtn i {
+        margin-right: 5px;
+        font-size: 20px;
+        position: relative;
+        top: 3px;
+    }
+
+    .nextbtn a {
+        color: white !important;
+        background-color: #003760;
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 5px;
+    }
+
+.modal {
+    position: fixed;
+    top: 5% !important;
+}
+
+.modal-dialog {
+    max-width: 420px !important;
+}
+
+.stepul {
+    position: fixed;
+    z-index: 99999999;
+    left: 20%;
+    top: 210px;
+    transform: translate(0px,-50%);
+}
+
+    .stepul ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+        .stepul ul li {
+            display: block;
+        }
+
+            .stepul ul li a {
+                color: #5a5a5a !important;
+                background-color: white;
+                border-radius: 50%;
+                height: 30px;
+                width: 30px;
+                cursor: pointer;
+                display: block;
+                margin-bottom: 179%;
+                text-align: center;
+                position: relative;
+            }
+
+                .stepul ul li a:after {
+                    position: absolute;
+                    content: "";
+                    left: 50%;
+                    bottom: 0px;
+                    z-index: -1;
+                    width: 5px;
+                    height: 82px;
+                    background-color: white;
+                    transform: translate(-50%,0px);
+                }
+
+            .stepul ul li:first-child a:after {
+                width: 0px;
+                height: 0px;
+            }
+
+    .stepul li a span {
+        position: relative;
+        top: 5px;
+        color: white;
+        font-weight: bold;
+    }
+
+    .stepul li .aactive {
+        background-color: #ffd800;
+        color: white !important;
+    }
+
+.cpeci {
+    right: 8px;
+    position: absolute !important;
+    transform: translate(95%, -50%) !important;
+}
+
+.themanhxebox {
+}
+
+.themanh_item {
+    display: inline-block;
+}
+
+    .themanh_item img {
+        width: 60px;
+        height: 60px;
+        border: 2px solid #5777ba;
+        padding: 5px 5px;
+        object-fit: cover;
+        cursor: pointer;
+    }
+
+.themanh_plus {
+    display: inline-block;
+    height: 60px;
+    cursor: pointer;
+    width: 60px;
+    border: 2px solid #5777ba;
+    left: 10px;
+    top: -15px;
+    position: relative;
+}
+
+    .themanh_plus a {
+    }
+
+.themanhxebox span {
+    margin-bottom: 10px;
+    display: block;
+    color: #5777ba;
+    font-weight: bold;
+}
+
+.themanh_plus i {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.chooseservice_box {
+    margin-bottom: 10px;
+}
+
+.chooseservice_img {
+}
+
+    .chooseservice_img img {
+        height: 80px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+.chooseservice_content {
+    margin-top: 0px;
+}
+
+.chooseservice_title {
+    color: #003760;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.chooseservice_desc {
+    font-size: 13px;
+    margin: 0px auto;
+}
+
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    color: #003760;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.xacnhandonhang_box {
+}
+
+.xacnhandonhang_info {
+    margin: 5px 0px;
+}
+
+    .xacnhandonhang_info i {
+        font-size: 16px;
+        width: 25px;
+    }
+
+    .xacnhandonhang_info span {
+    }
+
+.thongtindichvu {
+    background-color: #eee;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+    padding: 10px 0px;
+}
+
+.thongtindichvu_title {
+    color: white;
+    background-color: #003760;
+    text-transform: uppercase;
+    display: inline-block;
+    border-radius: 3px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.thongtindichvuspan {
+    margin-left: 20px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.thongtindichvu_icon {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    font-size: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+    .thongtindichvu_icon i {
+        border: 3px solid;
+        padding: 5px 5px;
+    }
+
+.nhapmakm {
+    text-align: left;
+    padding: 0px 20px;
+    position: relative;
+}
+
+    .nhapmakm span {
+        background-color: #b9b8b8;
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+        padding: 5px 10px;
+        border-radius: 8px;
+    }
+
+.apdung {
+    background-color: #f9f9f9 !important;
+    display: inline-block !important;
+    position: absolute;
+    right: 19px;
+    top: 0px;
+    width: auto !important;
+    border-radius: 0px 8px 8px 0px !important;
+}
+
+.tongcong1 {
+    color: #ffd800;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.tongcongbox {
+    background-color: #003760;
+    margin: 0px 20px;
+    padding: 10px 0px;
+    text-transform: uppercase;
+}
+
+.tongcong2 {
+    color: #ffd800;
+    font-size: 20px;
+}

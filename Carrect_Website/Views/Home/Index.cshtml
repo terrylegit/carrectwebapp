@@ -1,0 +1,157 @@
+﻿<div id="MyAuthentication">
+</div>
+<style>
+    #hero {
+        background-image: url('../../Upload/CARRECT1_BACKGROUND.PNG');
+    }
+</style>
+<script>
+    fetchPhoneInputForm();
+    var count = 0;
+    function fetchPhoneInputForm() {
+        $.ajax({
+            type: "POST",
+            url: '/Home/PhoneInputForm',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            async: false,
+            success: function (res) {
+                $('#MyAuthentication').html(res);
+            },
+        });
+    }
+    function fetchOTPAuthentication() {
+        $.ajax({
+            type: "POST",
+            url: '/Home/OTPAuthentication',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            async: false,
+            success: function (res) {
+                $('#MyAuthentication').html(res);
+                count += 1;
+                if (count == 2) { 
+                    $("#exampleModalLong").modal("toggle");
+                }
+            },
+        });
+    }
+    function fetchStep1() {
+        $.ajax({
+            type: "POST",
+            url: '/Home/BookingDetails',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            async: false,
+            success: function (res) {
+                $('#MyAuthentication').html(res);
+            },
+        });
+    }
+    function fetchStep2() {
+        $.ajax({
+            type: "POST",
+            url: '/Home/InputCarDetails',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            async: false,
+            success: function (res) {
+                $('#MyAuthentication').html(res);
+            },
+        });
+    }
+    function fetchStep3() {
+        $.ajax({
+            type: "POST",
+            url: '/Home/ChooseServices',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            async: false,
+            success: function (res) {
+                $('#MyAuthentication').html(res);
+            },
+        });
+    }
+    function fetchStep4() {
+        $.ajax({
+            type: "POST",
+            url: '/Home/ReviewBillsDiscount',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            async: false,
+            success: function (res) {
+                $('#MyAuthentication').html(res);
+            },
+        });
+    }
+    function fetchStep5() {
+        //CHỌN PHUONG THUC KHUYEN MAI
+    }
+    function fetchStep6() {
+        $.ajax({
+            type: "POST",
+            url: '/Home/WaitScreen',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            async: false,
+            success: function (res) {
+                $('#MyAuthentication').html(res);
+            },
+        });
+    }
+    function fetchStep7() {
+        $.ajax({
+            type: "POST",
+            url: '/Home/SuccessBooking',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            async: false,
+            success: function (res) {
+                $('#MyAuthentication').html(res);
+            },
+        });
+    }
+</script>
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+            </div>
+            <div class="modal-body">
+                <div id="tab1" class="tabchung">
+                    @Html.Action("BookingDetails", "Home")
+                </div>
+                <div id="tab2" class="tabchung">
+                    @Html.Action("InputCarDetails", "Home")
+                </div>
+                <div id="tab3" class="tabchung">
+                    @Html.Action("ChooseServices", "Home")
+                </div>
+                <div id="tab4" class="tabchung">
+                    @Html.Action("ReviewBillsDiscount", "Home")
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(".tabchung").hide();
+    $("#tab1").show();
+    function active(dis) {
+        $(".achung").removeClass("aactive");
+        $(dis).addClass("aactive");
+        var dataid = $(dis).attr("data-value");
+        $(".tabchung").hide();
+        $("#tab" + dataid).show();
+        var temp = $(".aactive ").        
+        var datatext = $(dis).attr("data-text");
+        $("#exampleModalLongTitle").html(datatext);
+    }
+</script>
