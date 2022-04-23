@@ -1,6 +1,7 @@
-﻿<div id="fetchInfoBooking">
+﻿<div id="fetchMenuTop">
 </div>
-
+<div id="fetchInfoBooking">
+</div>
 <!-- ======= Footer ======= -->
 <footer id="footer">
     <div class="container py-4">
@@ -20,9 +21,35 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <script>
+    fetchMenuTop1();
     fetchPhoneInputForm();
-    var count = 0;
+
+    function fetchMenuTop1() {
+        $.ajax({
+            type: "POST",
+            url: '/Home/MenuTop1',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            async: false,
+            success: function (res) {
+                $('#fetchMenuTop').html(res);
+            },
+        });
+    }
+    function fetchMenuTop2() {
+        $.ajax({
+            type: "POST",
+            url: '/Home/MenuTop2',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            async: false,
+            success: function (res) {
+                $('#fetchMenuTop').html(res);
+            },
+        });
+    }
     function fetchPhoneInputForm() {
+
         $.ajax({
             type: "POST",
             url: '/Home/PhoneInputForm',
@@ -35,6 +62,7 @@
         });
     }
     function fetchOTPAuthentication() {
+        fetchMenuTop2();
         $.ajax({
             type: "POST",
             url: '/Home/OTPAuthentication',

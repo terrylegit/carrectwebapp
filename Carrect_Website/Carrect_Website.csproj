@@ -2403,7 +2403,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout_bk1.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Home\Index_bk1.cshtml" />
     <Content Include="Views\Home\BookingDetails.cshtml" />
     <Content Include="Views\Home\InputCarDetails.cshtml" />
@@ -2411,12 +2411,13 @@
     <Content Include="Views\Home\ReviewBillsDiscount.cshtml" />
     <Content Include="Views\Home\WaitScreen.cshtml" />
     <Content Include="Views\Home\SuccessBooking.cshtml" />
-    <Content Include="Views\Home\MenuTop.cshtml" />
+    <Content Include="Views\Home\MenuTop1.cshtml" />
     <Content Include="Views\Home\OTPAuthentication.cshtml" />
     <Content Include="Views\Home\PhoneInputForm.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\MenuTop_bk1.cshtml" />
+    <Content Include="Views\Home\MenuTop2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

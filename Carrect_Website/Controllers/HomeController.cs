@@ -47,7 +47,11 @@ namespace Carrect_Website.Controllers
         {
             return PartialView();
         }
-        public ActionResult MenuTop()
+        public ActionResult MenuTop1()
+        {
+            return PartialView();
+        }
+        public ActionResult MenuTop2()
         {
             return PartialView();
         }
