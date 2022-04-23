@@ -7,7 +7,7 @@ a {
     padding: 0px 20px;
 }
 
-    .form_datlich i {
+    .form_datlich i:not(.exception) {
         color: #003E5F;
         position: absolute;
         left: 1px;
@@ -102,12 +102,12 @@ a {
                 height: 0px;
             }
 
-    .stepul li a span {
-        position: relative;
-        top: 5px;
-        color: white;
-        font-weight: bold;
-    }
+.stepul li a span {
+    position: relative;
+    top: 5px;
+    color: #003E5F;
+    font-weight: bold;
+}
 
     .stepul li .aactive {
         background-color: #ffd800;
@@ -135,17 +135,6 @@ a {
         object-fit: cover;
         cursor: pointer;
     }
-
-.themanh_plus {
-    display: inline-block;
-    height: 60px;
-    cursor: pointer;
-    width: 60px;
-    border: 2px solid #5777ba;
-    left: 10px;
-    top: -15px;
-    position: relative;
-}
 
     .themanh_plus a {
     }
@@ -237,7 +226,7 @@ a {
     margin-bottom: 5px;
 }
 
-.thongtindichvu_icon {
+/*.thongtindichvu_icon {
     position: absolute;
     right: 10px;
     top: 20px;
@@ -250,7 +239,7 @@ a {
         border: 3px solid;
         padding: 5px 5px;
     }
-
+*/
 .nhapmakm {
     text-align: left;
     padding: 0px 20px;
