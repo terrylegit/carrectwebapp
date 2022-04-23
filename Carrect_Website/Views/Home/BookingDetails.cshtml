@@ -5,92 +5,84 @@
             <div class="col-lg-12 d-flex justify-content-center pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
                 <div class="m-5" style="background: #fff; border-radius: 20px">
                     <div class="m-3">
-                        <div class="row">
-                            <div class="col-1">
-                                <div class="stepul">
-                                    <ul>
-                                        <li>
-                                            <a data-text="Thông tin đặt lịch" data-value="1" class="aactive achung" onclick="active(this)">
-                                                <span>1</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a data-text="Thông tin xe" data-value="2" class="achung" onclick="active(this)">
-                                                <span>2</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a data-text="Lựa chọn dịch vụ" data-value="3" class="achung" onclick="active(this)">
-                                                <span>3</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a data-text="Xác nhận đơn hàng" data-value="4" class="achung" onclick="active(this)">
-                                                <span>4</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a data-text="Tìm kiếm chuyên gia" data-value="5" class="achung" onclick="active(this)">
-                                                <span>5</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                        <div class="stepul">
+                            <ul>
+                                <li>
+                                    <a data-text="Thông tin đặt lịch" data-value="1" class="aactive achung" onclick="active(this)">
+                                        <span>1</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-text="Thông tin xe" data-value="2" class="achung" onclick="active(this)">
+                                        <span>2</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-text="Lựa chọn dịch vụ" data-value="3" class="achung" onclick="active(this)">
+                                        <span>3</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-text="Xác nhận đơn hàng" data-value="4" class="achung" onclick="active(this)">
+                                        <span>4</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-text="Tìm kiếm chuyên gia" data-value="5" class="achung" onclick="active(this)">
+                                        <span>5</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="form_datlich">                            
+                            <div class="d-flex justify-content-center">
+                                <h1 class="d-flex justify-content-center" style="color: #003E5F; margin-bottom: 0px">
+                                    THÔNG TIN ĐẶT LỊCH
+                                </h1>
                             </div>
-                            <div class="col-11">
-                                <div class="form_datlich">
-                                    <div class="d-flex justify-content-center">
-                                        <h1 class="d-flex justify-content-center" style="color: #003E5F; margin-bottom: 0px">
-                                            THÔNG TIN ĐẶT LỊCH
-                                        </h1>
-                                    </div>
-                                    <div class="form_datlich_inputbox">
-                                        <input placeholder="Nhập họ và tên..." /> <i class="bx bxs-user"></i>
-                                    </div>
-                                    <div class="form_datlich_inputbox">
-                                        <input placeholder="Lựa chọn vị trí" /> <i class="bx bxs-map"></i>
-                                    </div>
-                                    <div class="form_datlich_inputbox">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form_datlich_inputbox">
-                                                    <input placeholder="Chọn ngày" /> <i class='bx bx-calendar'></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form_datlich_inputbox">
-                                                    <input placeholder="Chọn giờ" /><i class='bx bx-time-five'></i>
-                                                </div>
-                                            </div>
+                            <div class="form_datlich_inputbox">
+                                <input placeholder="Nhập họ và tên..." /> <i class="bx bxs-user"></i>
+                            </div>
+                            <div class="form_datlich_inputbox">
+                                <input placeholder="Lựa chọn vị trí" /> <i class="bx bxs-map"></i>
+                            </div>
+                            <div class="form_datlich_inputbox">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form_datlich_inputbox">
+                                            <input placeholder="Chọn ngày" /> <i class='bx bx-calendar'></i>
                                         </div>
                                     </div>
-                                    <div class="form_datlich_inputbox">
-                                        <input placeholder="Ghi chú cho chuyên gia" /> <i class='bx bxs-map-pin'></i>
-                                    </div>
-
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <div class="p-2" style=" width: 150px; border-radius: 50px; text-align: center; ">
-                                        <a class="d-flex align-items-center" onclick="fetchStep2()" href="#" style="color: #95ACA9">
-                                            <i class="fa fa-angle-double-left fa-2x"></i>
-                                            <strong class="d-flex align-items-center">
-                                                &nbsp &nbsp TRỞ VỀ
-                                            </strong>
-                                        </a>
-                                    </div>
-                                    <div class="p-2" style="border: 1px solid #0089CE; width: 150px; border-radius: 50px; text-align: center; background: #003E5F; ">
-                                        <a class="d-flex align-items-center" onclick="fetchStep2()" href="#" style="color: #fff">
-                                            <i class="fa fa-angle-double-right fa-2x"></i>
-                                            <strong class="d-flex align-items-center">
-                                                &nbsp &nbsp TIẾP THEO
-                                            </strong>
-                                        </a>
+                                    <div class="col-md-6">
+                                        <div class="form_datlich_inputbox">
+                                            <input placeholder="Chọn giờ" /><i class='bx bx-time-five'></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
+                            <div class="form_datlich_inputbox">
+                                <input placeholder="Ghi chú cho chuyên gia" /> <i class='bx bxs-map-pin'></i>
+                            </div>
 
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="p-2" style=" width: 150px; border-radius: 50px; text-align: center; ">
+                                <a class="d-flex align-items-center" onclick="fetchStep1()" href="#" style="color: #95ACA9">
+                                    <i class="fa fa-angle-double-left fa-2x"></i>
+                                    <strong class="d-flex align-items-center">
+                                        &nbsp &nbsp TRỞ VỀ
+                                    </strong>
+                                </a>
+                            </div>
+                            <div class="p-2" style="border: 1px solid #0089CE; width: 150px; border-radius: 50px; text-align: center; background: #003E5F; ">
+                                <a class="d-flex align-items-center" onclick="fetchStep2()" href="#" style="color: #fff">
+                                    <i class="fa fa-angle-double-right fa-2x"></i>
+                                    <strong class="d-flex align-items-center">
+                                        &nbsp &nbsp TIẾP THEO
+                                    </strong>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,6 +110,13 @@
     #hero {
         padding-top: 90px;
         padding-bottom: 80px;
+    }
+    .stepul {
+        position: fixed;
+        z-index: 99999999;
+        left: 18%;
+        top: 250px;
+        transform: translate(0px,-50%);
     }
 </style>
 

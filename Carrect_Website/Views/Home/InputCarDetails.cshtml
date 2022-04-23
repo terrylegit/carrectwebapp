@@ -1,6 +1,150 @@
 ﻿<!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
     <div class="container">
+        <div class="row mybackground">
+            <div class="col-lg-12 d-flex justify-content-center pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
+                <div class="m-5" style="background: #fff; border-radius: 20px">
+                    <div class="m-3">
+                        <div class="stepul">
+                            <ul>
+                                <li>
+                                    <a data-text="Thông tin đặt lịch" data-value="1" class="achung" onclick="active(this)">
+                                        <span>1</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-text="Thông tin xe" data-value="2" class="aactive achung" onclick="active(this)">
+                                        <span>2</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-text="Lựa chọn dịch vụ" data-value="3" class="achung" onclick="active(this)">
+                                        <span>3</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-text="Xác nhận đơn hàng" data-value="4" class="achung" onclick="active(this)">
+                                        <span>4</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-text="Tìm kiếm chuyên gia" data-value="5" class="achung" onclick="active(this)">
+                                        <span>5</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="form_datlich">
+                            <div class="d-flex justify-content-center">
+                                <h1 class="d-flex justify-content-center" style="color: #003E5F; margin-bottom: 0px">
+                                    THÔNG TIN XE
+                                </h1>
+                            </div>
+                            <div class="form_datlich_inputbox">
+                                <input placeholder="Chọn hãng xe..." /> <i class="bx bxs-car"></i>
+                                <i class='cpeci bx bx-chevron-down'></i>
+                            </div>
+                            <div class="form_datlich_inputbox">
+                                <input placeholder="Chọn loại xe..." /><i class='bx bxs-carousel'></i>
+                                <i class='cpeci bx bx-chevron-down'></i>
+                            </div>
+                            <div class="form_datlich_inputbox">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form_datlich_inputbox">
+                                            <input placeholder="Biển số xe" /> <i class='bx bx-info-circle'></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form_datlich_inputbox">
+                                            <input placeholder="Nhập màu xe" /><i class='bx bx-color-fill'></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="themanhxebox">
+                                <span>Thêm ảnh xe</span>
+                                <div class="themanh_item">
+                                    <img src="~/assets/img/cars.jpg" />
+                                </div>
+                                <div class="themanh_plus">
+                                    <a>
+                                        <i class="bx bx-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="p-2" style=" width: 150px; border-radius: 50px; text-align: center; ">
+                                <a class="d-flex align-items-center" onclick="fetchStep1()" href="#" style="color: #95ACA9">
+                                    <i class="fa fa-angle-double-left fa-2x"></i>
+                                    <strong class="d-flex align-items-center">
+                                        &nbsp &nbsp TRỞ VỀ
+                                    </strong>
+                                </a>
+                            </div>
+                            <div class="p-2" style="border: 1px solid #0089CE; width: 150px; border-radius: 50px; text-align: center; background: #003E5F; ">
+                                <a class="d-flex align-items-center" onclick="fetchStep3()" href="#" style="color: #fff">
+                                    <i class="fa fa-angle-double-right fa-2x"></i>
+                                    <strong class="d-flex align-items-center">
+                                        &nbsp &nbsp TIẾP THEO
+                                    </strong>
+                                </a>
+                            </div>
+                        </div>  
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section><!-- End Hero -->
+<style>
+
+    #hero h1 {
+        font-size: 26px;
+    }
+
+    .mybackground {
+        background-image: url('../../Upload/CARRECT1_BACKGROUND.PNG');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .col-2 {
+        width: 12.666667%;
+    }
+
+    #hero {
+        padding-top: 90px;
+        padding-bottom: 80px;
+    }
+    .stepul {
+        position: fixed;
+        z-index: 99999999;
+        left: 18%;
+        top: 270px;
+        transform: translate(0px,-50%);
+    }
+
+    .themanhxebox span {
+        margin-bottom: 10px;
+        display: block;
+        color: #003E5F;
+        font-weight: bold;
+    }
+
+</style>
+
+
+
+
+
+<!-- ======= Hero Section ======= -->
+<!--<section id="hero" class="d-flex align-items-center">
+    <div class="container">
         <div class="row ">
             <div class="col-lg-12 d-flex justify-content-center pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
                 <div style="width: 50%; background: #D6D6E2; border-radius: 50px">
@@ -74,7 +218,7 @@
                                 <button onclick="fetchStep1()" type="button" class="btn btn-primary"><< Trở về</button>
                                 <button onclick="fetchStep3()" type="button" class="btn btn-primary">>> Tiếp theo</button>
                             </div>
-  
+
                         </div>
                     </div>
                 </div>
@@ -82,8 +226,8 @@
         </div>
     </div>
 
-</section><!-- End Hero -->
-<style>
+</section>--><!-- End Hero -->
+<!--<style>
     #hero h1 {
         font-size: 20px;
     }
@@ -91,5 +235,5 @@
     h3 {
         margin-top: 20px;
     }
-</style>
+</style>-->
 

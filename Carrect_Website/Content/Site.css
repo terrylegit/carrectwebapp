@@ -61,13 +61,7 @@ a {
     max-width: 420px !important;
 }
 
-.stepul {
-    position: fixed;
-    z-index: 99999999;
-    left: 20%;
-    top: 210px;
-    transform: translate(0px,-50%);
-}
+
 
     .stepul ul {
         margin: 0px;
@@ -156,12 +150,6 @@ a {
     .themanh_plus a {
     }
 
-.themanhxebox span {
-    margin-bottom: 10px;
-    display: block;
-    color: #5777ba;
-    font-weight: bold;
-}
 
 .themanh_plus i {
     position: relative;
