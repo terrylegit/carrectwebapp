@@ -233,4 +233,4 @@ D:\INSITU\2022\T4\Carrect_Website2\trunk\Carrect_Website\bin\Microsoft.CodeDom.P
 D:\INSITU\2022\T4\Carrect_Website2\trunk\Carrect_Website\obj\Debug\Carrect_Website.csproj.CoreCompileInputs.cache
 D:\INSITU\2022\T4\Carrect_Website2\trunk\Carrect_Website\obj\Debug\Carrect_Website.dll
 D:\INSITU\2022\T4\Carrect_Website2\trunk\Carrect_Website\obj\Debug\Carrect_Website.pdb
-D:\INSITU\2022\T4\Carrect_Website2\trunk\Carrect_Website\obj\Debug\Carrect_Website.csproj.CopyComplete
+D:\INSITU\2022\T4\Carrect_Website2\trunk\Carrect_Website\obj\Debug\Carrect_Website.csproj.AssemblyReference.cache
