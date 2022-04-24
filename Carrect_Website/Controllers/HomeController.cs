@@ -13,6 +13,11 @@ namespace Carrect_Website.Controllers
             return View();
         }
 
+        public ActionResult LandingPage()
+        {
+            return View();
+        }
+
         public ActionResult PhoneInputForm()
         {
             return PartialView();
