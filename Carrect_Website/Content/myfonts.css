@@ -7,3 +7,7 @@
     font-family: 'SVN-Poppins-Bold';
     src: url('../fonts/SVN-Poppins-Bold.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'SVN-Poppins-Medium';
+    src: url('../fonts/SVN-Poppins-Medium.ttf') format('truetype');
+}
