@@ -13,7 +13,9 @@ body {
     font-family: "SVN-Poppins-Regular";
     color: #585a61;
 }
-
+#header.header-transparent {
+     background: #fff; 
+}
 a {
   color: #5777ba;
   text-decoration: none;
