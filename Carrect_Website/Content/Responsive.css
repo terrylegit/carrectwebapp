@@ -1,4 +1,16 @@
 ﻿@media only screen and (max-width:768px) {
+    .otpauthen {
+        background: #fff;
+        border-radius: 20px;
+        margin-top: 0px;
+        margin-bottom: 50px;
+    }
+
+    .inputform {
+        margin-top: 0px;
+        margin-bottom: 50px;
+    }
+
     .m-5 {
         margin: 3rem 0rem !important;
     }
@@ -91,22 +103,28 @@
             position: relative;
             left: 8%;
         }
+
     .themanh_item img {
         margin-bottom: 15px;
     }
+
     .themanh_plus {
         margin-bottom: 8px;
     }
+
     .form_datlich {
         width: auto !important;
     }
+
     .xacnhandonhang_box {
         text-align: left;
     }
+
     .xacnhandonhang_info {
         margin: 5px 0px;
         display: inline-block;
     }
+
     .thongtindichvu_title {
         color: white;
         background-color: #003760;
@@ -118,12 +136,23 @@
         margin-top: 10px;
         margin-bottom: 20px;
     }
+
     .thongtindichvu_icon i {
         font-size: 23px;
     }
+
     .thongtindichvu_icon {
         font-size: 12px;
         position: relative;
         top: -4px;
+    }
+
+    #navbar2 ul li a {
+        padding: 10px 0 10px 0px;
+        font-size: 11px;
+    }
+
+    #navbar2 ul li i {
+        font-size: 28px !important;
     }
 }
