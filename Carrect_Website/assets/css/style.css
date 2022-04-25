@@ -1311,3 +1311,15 @@ section {
             line-height: 0;
             margin-left: 5px;
         }
+.inputform_padding {
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 30px;
+    padding-bottom: 30px
+}
+.btnnextprev{
+
+}
+.chooseservice_box {
+    cursor: pointer;
+}

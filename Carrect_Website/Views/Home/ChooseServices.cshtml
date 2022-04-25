@@ -40,7 +40,7 @@
                                     LỰA CHỌN DỊCH VỤ
                                 </h1>
                             </div>
-                            <div class="chooseservice_box">
+                            <div class="chooseservice_box" onclick="selectsv(this)">
                                 <div class="row">
                                     <div class="col-sm-8">
                                         <div class="chooseservice_img">
@@ -68,10 +68,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="chooseservice_box">
+                            <div class="chooseservice_box" onclick="selectsv(this)">
                                 <div class="row">
                                     <div class="col-sm-8">
-                                        <div class="chooseservice_img">
+                                          <div class="chooseservice_img">
                                             <div class="click-chon ">
                                                 <i onclick="active_checkbx(this)" class="bx bx-check">
                                                 </i>
@@ -95,10 +95,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="chooseservice_box">
+                            <div class="chooseservice_box" onclick="selectsv(this)">
                                 <div class="row">
                                     <div class="col-sm-8">
-                                        <div class="chooseservice_img">
+                                          <div class="chooseservice_img">
                                             <div class="click-chon ">
                                                 <i onclick="active_checkbx(this)" class="bx bx-check">
                                                 </i>
@@ -123,10 +123,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="chooseservice_box">
+                            <div class="chooseservice_box" onclick="selectsv(this)">
                                 <div class="row">
                                     <div class="col-sm-8">
-                                        <div class="chooseservice_img">
+                                          <div class="chooseservice_img">
                                             <div class="click-chon ">
                                                 <i onclick="active_checkbx(this)" class="bx bx-check">
                                                 </i>
@@ -151,10 +151,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="chooseservice_box">
+                            <div class="chooseservice_box" onclick="selectsv(this)">
                                 <div class="row">
                                     <div class="col-sm-8">
-                                        <div class="chooseservice_img">
+                                          <div class="chooseservice_img">
                                             <div class="click-chon ">
                                                 <i onclick="active_checkbx(this)" class="bx bx-check">
                                                 </i>
@@ -179,10 +179,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="chooseservice_box">
+                            <div class="chooseservice_box" onclick="selectsv(this)">
                                 <div class="row">
                                     <div class="col-sm-8">
-                                        <div class="chooseservice_img">
+                                          <div class="chooseservice_img">
                                             <div class="click-chon ">
                                                 <i onclick="active_checkbx(this)" class="bx bx-check">
                                                 </i>
@@ -298,5 +298,8 @@
             $(dis).addClass("click-chon-active");
         }
     }
-    
+
+    function selectsv(dis) {
+        $(dis).children().find('.bx-check').click();
+    }
 </script>
