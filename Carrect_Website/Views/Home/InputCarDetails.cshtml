@@ -1,4 +1,5 @@
 ﻿<!-- ======= Hero Section ======= -->
+
 <section id="hero" class="d-flex align-items-center">
     <div class="container">
         <div class="row mybackground">
@@ -40,13 +41,23 @@
                                     THÔNG TIN XE
                                 </h1>
                             </div>
-                            <div class="form_datlich_inputbox">
-                                <input placeholder="Chọn hãng xe..." /> <i class="bx bxs-car"></i>
-                                <i class='cpeci bx bx-chevron-down'></i>
+                            <div class="form_datlich_inputbox myslect">
+                                <select onchange="slBrandchange()" class='fstdropdown-select' id="slCarBrand" data-placeholder="Search...">
+                                    <option value="">Chọn hãng xe</option>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                            <option value="@item.ID">@item.Name</option>
+
+                                        }
+                                    }
+                                </select>
                             </div>
-                            <div class="form_datlich_inputbox">
-                                <input placeholder="Chọn loại xe..." /><i class='bx bxs-carousel'></i>
-                                <i class='cpeci bx bx-chevron-down'></i>
+                            <div class="form_datlich_inputbox myslect">
+                                <select class='fstdropdown-select' id="slCarModel" data-placeholder="Search...">
+                                    <option value="">Chọn loại xe...</option>
+                                </select>
                             </div>
                             <div class="form_datlich_inputbox">
                                 <div class="row">
@@ -84,14 +95,14 @@
                                 </a>
                             </div>
                             <div style="outline:2px solid #003E5F;border: 1.5px solid #fff; width: 150px; border-radius: 50px; text-align: center; background: #003E5F; ">
-                                <a class="d-flex align-items-center" onclick="fetchStep3()" href="#" style="color: #fff">                                    
+                                <a class="d-flex align-items-center" onclick="fetchStep3()" href="#" style="color: #fff">
                                     <strong class="d-flex align-items-center">
                                         <i class="fa fa-angle-double-right fa-2x" style="padding-left:10px; padding-right:15px"></i>
                                         TIẾP THEO
                                     </strong>
                                 </a>
                             </div>
-                        </div>  
+                        </div>
 
                     </div>
                 </div>
@@ -131,6 +142,7 @@
         color: #003E5F;
         font-weight: bold;
     }
+
     .themanh_plus {
         display: inline-block;
         height: 60px;
@@ -140,8 +152,7 @@
         left: 10px;
         top: 26px;
         position: relative;
-    }  
-
+    }
 </style>
 
 
@@ -232,7 +243,8 @@
         </div>
     </div>
 
-</section>--><!-- End Hero -->
+</section>-->
+<!-- End Hero -->
 <!--<style>
     #hero h1 {
         font-size: 20px;
@@ -243,3 +255,81 @@
     }
 </style>-->
 
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>fstdropdown demo</title>
+    <meta name="description" content="fstdropdown demo">
+    <meta name="author" content="VirtusX">
+    <link rel="stylesheet" href="fstdropdown.css">
+    <link href="~/assets/fstdropdown-master/fstdropdown.css" rel="stylesheet" />
+</head>
+<body>
+
+    <script src="fstdropdown.js"></script>
+    @*<script>
+            function setDrop() {
+                if (!document.getElementById('third').classList.contains("fstdropdown-select"))
+                    document.getElementById('third').className = 'fstdropdown-select';
+                setFstDropdown();
+            }
+            setFstDropdown();
+            function removeDrop() {
+                if (document.getElementById('third').classList.contains("fstdropdown-select")) {
+                    document.getElementById('third').classList.remove('fstdropdown-select');
+                    document.getElementById("third").fstdropdown.dd.remove();
+                    document.querySelector("#third~.fstdiv").remove();
+                }
+            }
+            function addOptions(add) {
+                var select = document.getElementById("fourth");
+                for (var i = 0; i < add; i++) {
+                    var opt = document.createElement("option");
+                    var o = Array.from(document.getElementById("fourth").querySelectorAll("option")).slice(-1)[0];
+                    var last = o == undefined ? 1 : Number(o.value) + 1;
+                    opt.text = opt.value = last;
+                    select.add(opt);
+                }
+            }
+            function removeOptions(remove) {
+                for (var i = 0; i < remove; i++) {
+                    var last = Array.from(document.getElementById("fourth").querySelectorAll("option")).slice(-1)[0];
+                    if (last == undefined)
+                        break;
+                    Array.from(document.getElementById("fourth").querySelectorAll("option")).slice(-1)[0].remove();
+                }
+            }
+            function updateDrop() {
+                document.getElementById("fourth").fstdropdown.rebind();
+            }
+        </script>*@
+</body>
+</html>
+<script>
+
+    document.getElementById("slCarModel").fstdropdown.rebind();
+    function slBrandchange() {
+
+        var param = {
+            "CarBrandID": $("#slCarBrand").val()
+        }
+        $.ajax({
+            url: '/Ajax/LoadCarModel',
+            data: param,
+            dataType: 'text',
+            type: 'POST',
+            cache: false,
+            success: function (result) {
+                $("#slCarModel").html(result)
+                document.getElementById("slCarModel").fstdropdown.rebind();
+            }
+        });
+    }
+
+</script>
+<script src="~/assets/fstdropdown-master/fstdropdown.js"></script>

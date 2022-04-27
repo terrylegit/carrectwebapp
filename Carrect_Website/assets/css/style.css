@@ -1311,15 +1311,52 @@ section {
             line-height: 0;
             margin-left: 5px;
         }
+
 .inputform_padding {
     padding-left: 70px;
     padding-right: 70px;
     padding-top: 30px;
     padding-bottom: 30px
 }
-.btnnextprev{
 
+.btnnextprev {
 }
+
 .chooseservice_box {
     cursor: pointer;
 }
+
+.myslect {
+    position: relative;
+}
+    .myslect input {
+        cursor: pointer;
+    }
+
+    .myslect ul {
+        position: absolute;
+        left: 0px;
+        top: 100%;
+        margin: 0px;
+        padding: 0px;
+        z-index: 999999;
+        background-color: #eee;
+        width: 100%;
+        margin-top: 10px;
+        display: none;
+    }
+
+        .myslect ul li {
+            display: block;
+        }
+
+            .myslect ul li a {
+                display: block;
+                cursor:pointer;
+                padding: 5px 20px;
+            }
+                .myslect ul li a:hover {
+                    background-color: #d4d4d4;
+                    color:#5777ba !important;
+                    font-weight: bold;
+                }

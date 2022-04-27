@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Carrect_Website.Models;
 namespace Carrect_Website.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
+           
             return View();
         }
 
@@ -34,7 +36,12 @@ namespace Carrect_Website.Controllers
         }
         public  ActionResult InputCarDetails()
         {
-            return PartialView();
+            using (CarrectEntities db = new CarrectEntities())
+            {
+                var model = db.CarBrands.ToList();
+                return PartialView(model);
+
+            }
         }
         public ActionResult ChooseServices()
         {

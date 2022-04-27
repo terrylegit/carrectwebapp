@@ -313,3 +313,7 @@ D:\insitu2023\Carrect_Website\trunk\Carrect_Website\obj\Debug\Carrect_Website.cs
 D:\insitu2023\Carrect_Website\trunk\Carrect_Website\obj\Debug\Carrect_Website.csproj.CopyComplete
 D:\insitu2023\Carrect_Website\trunk\Carrect_Website\obj\Debug\Carrect_Website.dll
 D:\insitu2023\Carrect_Website\trunk\Carrect_Website\obj\Debug\Carrect_Website.pdb
+D:\insitu2023\Carrect_Website\trunk\Carrect_Website\bin\EntityFramework.dll
+D:\insitu2023\Carrect_Website\trunk\Carrect_Website\bin\EntityFramework.SqlServer.dll
+D:\insitu2023\Carrect_Website\trunk\Carrect_Website\bin\EntityFramework.xml
+D:\insitu2023\Carrect_Website\trunk\Carrect_Website\bin\EntityFramework.SqlServer.xml

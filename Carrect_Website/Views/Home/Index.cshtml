@@ -4,13 +4,30 @@
 </div>
 <div id="fetchInfoBooking">
 </div>
+<div id="nextstep" data-aos="fade-up">
+    <div>
+        @Html.Action("BookingDetails", "Home")
+    </div>
+    <div>
+        @Html.Action("InputCarDetails", "Home")
+    </div>
+    <div>
+        @Html.Action("ChooseServices", "Home")
+    </div>
+    <div>
+        @Html.Action("ReviewBillsDiscount", "Home")
+    </div>
+    <div>
+        @Html.Action("ReviewBillsDiscount", "Home")
+    </div>
+</div>
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <script>
     fetchMenuTop1();
-    /*fetchStep3()*/
-    fetchPhoneInputForm();
+   // fetchStep2()
+     fetchPhoneInputForm();
 
     function fetchMenuTop1() {
         $.ajax({
@@ -62,19 +79,22 @@
             },
         });
     }
+    $("#nextstep").hide();
     function fetchStep1() {
-        $.ajax({
-            type: "POST",
-            url: '/Home/BookingDetails',
-            contentType: "application/json; charset=utf-8",
-            dataType: "html",
-            async: false,
-            success: function (res) {
-                $('#fetchInfoBooking').html(res);
-            },
-        });
+        $("#fetchInfoBooking").hide();
+        $("#nextstep").show();
+        //$.ajax({
+        //    type: "POST",
+        //    url: '/Home/BookingDetails',
+        //    contentType: "application/json; charset=utf-8",
+        //    dataType: "html",
+        //    async: false,
+        //    success: function (res) {
+        //        $('#fetchInfoBooking').html(res);
+        //    },
+        //});
     }
-    function fetchStep2() {
+    function fetchStep2() { 
         $.ajax({
             type: "POST",
             url: '/Home/InputCarDetails',

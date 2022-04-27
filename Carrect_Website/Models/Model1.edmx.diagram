@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="591cd5e5e30147c783d29b9786b39010" Name="Diagram1">
+        <EntityTypeShape EntityType="CarrectModel.Agent" Width="1.5" PointX="6.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.AgentArea" Width="1.5" PointX="15" PointY="49.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.AgentImage" Width="1.5" PointX="9" PointY="59.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.AppVersion" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Area" Width="1.5" PointX="6.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Bank" Width="1.5" PointX="9" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.BankMember" Width="1.5" PointX="11.25" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.CallQuality" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.CarBrand" Width="1.5" PointX="1.5" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.CarCustomer" Width="1.5" PointX="1.5" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.CarImage" Width="1.5" PointX="3.75" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.CarModel" Width="1.5" PointX="1.5" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.CarSegment" Width="1.5" PointX="1.5" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Cart" Width="1.5" PointX="18.25" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Category" Width="1.5" PointX="13.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.CategoryNew" Width="1.5" PointX="9.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.ClassShift" Width="1.5" PointX="14.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Config" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.ConfigCommission" Width="1.5" PointX="4.5" PointY="41.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Coupon" Width="1.5" PointX="6.75" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.CouponCustomer" Width="1.5" PointX="9" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.CouponWasher" Width="1.5" PointX="9" PointY="40.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Customer" Width="1.5" PointX="3.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.CustomerLocation" Width="1.5" PointX="6" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.CustomerOffice" Width="1.5" PointX="6.75" PointY="56" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.CustomerRank" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.CustomerRankServiceBonu" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Day" Width="1.5" PointX="17" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.DeviceHistoryLogin" Width="1.5" PointX="11.25" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.District" Width="1.5" PointX="1.5" PointY="43.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.HistoryRankingPoint" Width="1.5" PointX="6" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Intro" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.MainServiceAdditionService" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Member" Width="1.5" PointX="9" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.MembersTransactionHistory" Width="1.5" PointX="11.25" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.News" Width="1.5" PointX="12" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Notification" Width="1.5" PointX="14.25" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.OrderService" Width="1.5" PointX="9" PointY="44.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.OrderServiceDetail" Width="1.5" PointX="11.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.OrderServiceImage" Width="1.5" PointX="5.25" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.OrderServiceImageCar" Width="1.5" PointX="11.25" PointY="62.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.PaymentInstructionNote" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Policy" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Product" Width="1.5" PointX="16" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.ProductImage" Width="1.5" PointX="18.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.ProductOrder" Width="1.5" PointX="12" PointY="48.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.ProductOrderDetail" Width="1.5" PointX="18.25" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Promotion" Width="1.5" PointX="14.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Province" Width="1.5" PointX="1.5" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.QA" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.QACustomer" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Reason" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.RequestForAdmin" Width="1.5" PointX="14.25" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Service" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.ServiceBonusCustomer" Width="1.5" PointX="6" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.ServiceCombo" Width="1.5" PointX="3.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.ServiceComboDetail" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.ServiceComboSegment" Width="1.5" PointX="6.75" PointY="59.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.ServiceImage" Width="1.5" PointX="6" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.ServicePrice" Width="1.5" PointX="9" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.ServiceRequiteImage" Width="1.5" PointX="3" PointY="35.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Shift" Width="1.5" PointX="17" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.User" Width="1.5" PointX="9.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.Wallet" Width="1.5" PointX="11.25" PointY="36.625" IsExpanded="true" />
+        <AssociationConnector Association="CarrectModel.FK__AgentArea__Agent__5F492382" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__AgentImag__Agent__6C23FBB3" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__Cart__WasherID__3B0BC30C" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__OrderItem__Agent__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_Agent_ConfigCommission" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_CouponWasher_Agent" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_Member_Agent" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_ProductOrder_Agent" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__AgentArea__AreaI__603D47BB" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__Area__DistrictCo__589C25F3" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_OrderItem_Area" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__BrankMemb__Brank__4885B9BB" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__BankMembe__Membe__0697FACD" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__BankMembe__Membe__4C6B5938" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__BrankMemb__Membe__4979DDF4" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_MembersTransactionHistory_BankMember" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__CarMode__CarBran__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__CarCustom__CarMo__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__CarCustom__Custo__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__CarImage__CarCus__77DFC722" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_Customer_CarCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_OrderItem_CarCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__CarMode__CarSegm__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__ItemCombo__CarSe__634EBE90" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__ItemDetai__CarSe__339FAB6E" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__Cart__ProductID__3BFFE745" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__Product__Categor__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__News__CategoryID__1699586C" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__Days__ClasShiftI__02C769E9" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_Shift_ClassShift" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__CouponCus__Coupo__54CB950F" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__OrderItem__Coupo__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_CouponWasher_Coupon" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_ProductOrder_Coupon" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__CouponCus__Custo__53D770D6" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__CustomerL__Custo__25E688F4" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__CustomerO__Custo__10216507" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__HistoryRa__Custo__6F7F8B4B" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__OrderItem__Custo__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__ServerBon__Custo__370627FE" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_Customer_CustomerRank" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_Customer_District" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_Customer_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_Member_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__CustomerO__Custo__10216337" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__CustomerR__RankI__4CF5691D" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__ServerBon__RankI__37FA4C37" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__CustomerR__Servi__01D345B0" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_DeviceHistoryLogin_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_District_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__MainServi__Addit__05A3D694" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__MainServi__Addit__0697FACD" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__MainServi__Addit__078C1F06" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__MainServi__Addit__2704CA5F" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__MainServi__Addit__27F8EE98" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__MainServi__MainS__0880433F" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__MainServi__MainS__09746778" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__MainServi__MainS__2AD55B43" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__MainServi__MainS__2BC97F7C" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__MembersPo__Membe__2BC97F7C" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__Notificat__Membe__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__Wallet__MemberID__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_RequestForAdmin_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__MembersPo__Order__2CBDA3B5" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__MembersPo__Produ__2DB1C7EE" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_MembersPointHistory_Wallet" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__Promotion__NewsI__4321E620" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_News_User" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_Notification_News" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_Notification_OrderItem" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_Notification_ProductOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__OrderItem__Order__231F2AE2" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__OrderItem__Order__6EC0713C" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__OrderServ__Order__4870AB22" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__RequestFo__Order__4F1DA8B1" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_OrderService_ServiceComboSegment" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_OrderItemDetail_ItemDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_OrderServiceImage_ServiceRequiteImage" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__ProductIm__Produ__2334397B" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__ProductOr__Produ__42ACE4D4" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__ProductOr__Produ__43A1090D" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__ServerBon__Servi__38EE7070" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__ServiceRe__Servi__0CFADF99" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_ItemDetail_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_ServiceComboDetail_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_ServiceImage_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK__ItemCombo__ItemC__6166761E" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_ServiceComboDetail_ServiceCombo" ManuallyRouted="false" />
+        <AssociationConnector Association="CarrectModel.FK_ServiceImage_ServiceCombo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
