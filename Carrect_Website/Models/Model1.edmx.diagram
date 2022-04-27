@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="591cd5e5e30147c783d29b9786b39010" Name="Diagram1">
+      <Diagram DiagramId="eab00df815cf4a499dbcf0fffed4b02c" Name="Diagram1">
         <EntityTypeShape EntityType="CarrectModel.Agent" Width="1.5" PointX="6.75" PointY="39.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CarrectModel.AgentArea" Width="1.5" PointX="15" PointY="49.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CarrectModel.AgentImage" Width="1.5" PointX="9" PointY="59.75" IsExpanded="true" />
@@ -67,6 +67,7 @@
         <EntityTypeShape EntityType="CarrectModel.ServicePrice" Width="1.5" PointX="9" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CarrectModel.ServiceRequiteImage" Width="1.5" PointX="3" PointY="35.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CarrectModel.Shift" Width="1.5" PointX="17" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarrectModel.sysdiagram" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CarrectModel.User" Width="1.5" PointX="9.75" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="CarrectModel.Wallet" Width="1.5" PointX="11.25" PointY="36.625" IsExpanded="true" />
         <AssociationConnector Association="CarrectModel.FK__AgentArea__Agent__5F492382" ManuallyRouted="false" />

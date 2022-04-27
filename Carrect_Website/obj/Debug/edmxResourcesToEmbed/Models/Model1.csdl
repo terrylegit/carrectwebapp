@@ -1,0 +1,2587 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarrectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Agent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="AvatarUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Rating" Type="Double" />
+    <Property Name="RatingAdmin" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CommissionID" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="longi" Type="Double" />
+    <Property Name="lati" Type="Double" />
+    <Property Name="AcceptService" Type="Int32" />
+    <Property Name="Identification" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="IsInHouse" Type="Int32" />
+    <NavigationProperty Name="AgentAreas" Relationship="Self.FK__AgentArea__Agent__5F492382" FromRole="Agent" ToRole="AgentArea" />
+    <NavigationProperty Name="AgentImages" Relationship="Self.FK__AgentImag__Agent__6C23FBB3" FromRole="Agent" ToRole="AgentImage" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__WasherID__3B0BC30C" FromRole="Agent" ToRole="Cart" />
+    <NavigationProperty Name="OrderServices" Relationship="Self.FK__OrderItem__Agent__71D1E811" FromRole="Agent" ToRole="OrderService" />
+    <NavigationProperty Name="ConfigCommission" Relationship="Self.FK_Agent_ConfigCommission" FromRole="Agent" ToRole="ConfigCommission" />
+    <NavigationProperty Name="CouponWashers" Relationship="Self.FK_CouponWasher_Agent" FromRole="Agent" ToRole="CouponWasher" />
+    <NavigationProperty Name="Members" Relationship="Self.FK_Member_Agent" FromRole="Agent" ToRole="Member" />
+    <NavigationProperty Name="ProductOrders" Relationship="Self.FK_ProductOrder_Agent" FromRole="Agent" ToRole="ProductOrder" />
+  </EntityType>
+  <EntityType Name="AgentArea">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AgentID" Type="Int32" Nullable="false" />
+    <Property Name="AreaID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Agent" Relationship="Self.FK__AgentArea__Agent__5F492382" FromRole="AgentArea" ToRole="Agent" />
+    <NavigationProperty Name="Area" Relationship="Self.FK__AgentArea__AreaI__603D47BB" FromRole="AgentArea" ToRole="Area" />
+  </EntityType>
+  <EntityType Name="AgentImage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AgentID" Type="Int32" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Agent" Relationship="Self.FK__AgentImag__Agent__6C23FBB3" FromRole="AgentImage" ToRole="Agent" />
+  </EntityType>
+  <EntityType Name="AppVersion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VersionApp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TypeOS" Type="Int32" />
+    <Property Name="CodePushVersion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Is_Force_Update" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DistrictCode" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AgentAreas" Relationship="Self.FK__AgentArea__AreaI__603D47BB" FromRole="Area" ToRole="AgentArea" />
+    <NavigationProperty Name="District" Relationship="Self.FK__Area__DistrictCo__589C25F3" FromRole="Area" ToRole="District" />
+    <NavigationProperty Name="OrderServices" Relationship="Self.FK_OrderItem_Area" FromRole="Area" ToRole="OrderService" />
+  </EntityType>
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CraeteDate" Type="DateTime" Precision="3" />
+    <Property Name="NameEn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BankMembers" Relationship="Self.FK__BrankMemb__Brank__4885B9BB" FromRole="Bank" ToRole="BankMember" />
+  </EntityType>
+  <EntityType Name="BankMember">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BankID" Type="Int32" Nullable="false" />
+    <Property Name="MemberID" Type="Int32" Nullable="false" />
+    <Property Name="Acount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AcountOwner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CraeteDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Bank" Relationship="Self.FK__BrankMemb__Brank__4885B9BB" FromRole="BankMember" ToRole="Bank" />
+    <NavigationProperty Name="Member" Relationship="Self.FK__BankMembe__Membe__0697FACD" FromRole="BankMember" ToRole="Member" />
+    <NavigationProperty Name="Member1" Relationship="Self.FK__BankMembe__Membe__4C6B5938" FromRole="BankMember" ToRole="Member" />
+    <NavigationProperty Name="Member2" Relationship="Self.FK__BrankMemb__Membe__4979DDF4" FromRole="BankMember" ToRole="Member" />
+    <NavigationProperty Name="MembersTransactionHistories" Relationship="Self.FK_MembersTransactionHistory_BankMember" FromRole="BankMember" ToRole="MembersTransactionHistory" />
+  </EntityType>
+  <EntityType Name="CallQuality">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CallID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rating" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="CarBrand">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CarModels" Relationship="Self.FK__CarMode__CarBran__1DE57479" FromRole="CarBrand" ToRole="CarModel" />
+  </EntityType>
+  <EntityType Name="CarCustomer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="CarModeID" Type="Int32" Nullable="false" />
+    <Property Name="LicensePlates" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ManufacturingDate" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
+    <Property Name="CarColor" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="StatusCar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleRegistration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="verify" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CarModel" Relationship="Self.FK__CarCustom__CarMo__37A5467C" FromRole="CarCustomer" ToRole="CarModel" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__CarCustom__Custo__36B12243" FromRole="CarCustomer" ToRole="Customer" />
+    <NavigationProperty Name="CarImages" Relationship="Self.FK__CarImage__CarCus__77DFC722" FromRole="CarCustomer" ToRole="CarImage" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_CarCustomer" FromRole="CarCustomer" ToRole="Customer" />
+    <NavigationProperty Name="OrderServices" Relationship="Self.FK_OrderItem_CarCustomer" FromRole="CarCustomer" ToRole="OrderService" />
+  </EntityType>
+  <EntityType Name="CarImage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarCustomerID" Type="Int32" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CraeteDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CarCustomer" Relationship="Self.FK__CarImage__CarCus__77DFC722" FromRole="CarImage" ToRole="CarCustomer" />
+  </EntityType>
+  <EntityType Name="CarModel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CarBrandID" Type="Int32" />
+    <Property Name="CarSegmentID" Type="Int32" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="Parth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CarBrand" Relationship="Self.FK__CarMode__CarBran__1DE57479" FromRole="CarModel" ToRole="CarBrand" />
+    <NavigationProperty Name="CarCustomers" Relationship="Self.FK__CarCustom__CarMo__37A5467C" FromRole="CarModel" ToRole="CarCustomer" />
+    <NavigationProperty Name="CarSegment" Relationship="Self.FK__CarMode__CarSegm__1ED998B2" FromRole="CarModel" ToRole="CarSegment" />
+  </EntityType>
+  <EntityType Name="CarSegment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameVN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NameEN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CarModels" Relationship="Self.FK__CarMode__CarSegm__1ED998B2" FromRole="CarSegment" ToRole="CarModel" />
+    <NavigationProperty Name="ServiceComboSegments" Relationship="Self.FK__ItemCombo__CarSe__634EBE90" FromRole="CarSegment" ToRole="ServiceComboSegment" />
+    <NavigationProperty Name="ServicePrices" Relationship="Self.FK__ItemDetai__CarSe__339FAB6E" FromRole="CarSegment" ToRole="ServicePrice" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WasherID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Agent" Relationship="Self.FK__Cart__WasherID__3B0BC30C" FromRole="Cart" ToRole="Agent" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Cart__ProductID__3BFFE745" FromRole="Cart" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NameEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NameVN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <NavigationProperty Name="Products" Relationship="Self.FK__Product__Categor__07C12930" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="CategoryNew">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameVN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NameEN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CraeteDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="News" Relationship="Self.FK__News__CategoryID__1699586C" FromRole="CategoryNews" ToRole="News" />
+  </EntityType>
+  <EntityType Name="ClassShift">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Time" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Days" Relationship="Self.FK__Days__ClasShiftI__02C769E9" FromRole="ClassShift" ToRole="Days" />
+    <NavigationProperty Name="Shifts" Relationship="Self.FK_Shift_ClassShift" FromRole="ClassShift" ToRole="Shift" />
+  </EntityType>
+  <EntityType Name="Config">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameConstant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ValueConstant" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConfigCommission">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CarAutocareAcaDemy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Duration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Process" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MastersBenefit" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Agents" Relationship="Self.FK_Agent_ConfigCommission" FromRole="ConfigCommission" ToRole="Agent" />
+  </EntityType>
+  <EntityType Name="Coupon">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Persent" Type="Int32" />
+    <Property Name="Discount" Type="Int32" />
+    <Property Name="TypeCoupon" Type="Int32" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="QTY" Type="Int32" Nullable="false" />
+    <Property Name="Remain" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpriceDate" Type="DateTime" Precision="3" />
+    <Property Name="RankID" Type="Int32" />
+    <Property Name="ConfigCommissionID" Type="Int32" />
+    <Property Name="ServiceID" Type="Int32" />
+    <Property Name="ComboID" Type="Int32" />
+    <NavigationProperty Name="CouponCustomers" Relationship="Self.FK__CouponCus__Coupo__54CB950F" FromRole="Coupon" ToRole="CouponCustomer" />
+    <NavigationProperty Name="OrderServices" Relationship="Self.FK__OrderItem__Coupo__74AE54BC" FromRole="Coupon" ToRole="OrderService" />
+    <NavigationProperty Name="CouponWashers" Relationship="Self.FK_CouponWasher_Coupon" FromRole="Coupon" ToRole="CouponWasher" />
+    <NavigationProperty Name="ProductOrders" Relationship="Self.FK_ProductOrder_Coupon" FromRole="Coupon" ToRole="ProductOrder" />
+  </EntityType>
+  <EntityType Name="CouponCustomer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="CouponID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Coupon" Relationship="Self.FK__CouponCus__Coupo__54CB950F" FromRole="CouponCustomer" ToRole="Coupon" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__CouponCus__Custo__53D770D6" FromRole="CouponCustomer" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="CouponWasher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CouponID" Type="Int32" />
+    <Property Name="AgentID" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Agent" Relationship="Self.FK_CouponWasher_Agent" FromRole="CouponWasher" ToRole="Agent" />
+    <NavigationProperty Name="Coupon" Relationship="Self.FK_CouponWasher_Coupon" FromRole="CouponWasher" ToRole="Coupon" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sex" Type="Int32" />
+    <Property Name="AvatarUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProvinceCode" Type="Int32" />
+    <Property Name="DistrictCode" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="Double" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="QTYCancel" Type="Int32" />
+    <Property Name="RefCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="MyRefCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CurrentCarID" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CustomerRankID" Type="Int32" />
+    <Property Name="RankDate" Type="DateTime" Precision="3" />
+    <Property Name="RankingPoint" Type="Int32" />
+    <NavigationProperty Name="CarCustomers" Relationship="Self.FK__CarCustom__Custo__36B12243" FromRole="Customer" ToRole="CarCustomer" />
+    <NavigationProperty Name="CarCustomer" Relationship="Self.FK_Customer_CarCustomer" FromRole="Customer" ToRole="CarCustomer" />
+    <NavigationProperty Name="CouponCustomers" Relationship="Self.FK__CouponCus__Custo__53D770D6" FromRole="Customer" ToRole="CouponCustomer" />
+    <NavigationProperty Name="CustomerLocations" Relationship="Self.FK__CustomerL__Custo__25E688F4" FromRole="Customer" ToRole="CustomerLocation" />
+    <NavigationProperty Name="CustomerOffices" Relationship="Self.FK__CustomerO__Custo__10216507" FromRole="Customer" ToRole="CustomerOffice" />
+    <NavigationProperty Name="HistoryRankingPoints" Relationship="Self.FK__HistoryRa__Custo__6F7F8B4B" FromRole="Customer" ToRole="HistoryRankingPoint" />
+    <NavigationProperty Name="OrderServices" Relationship="Self.FK__OrderItem__Custo__70DDC3D8" FromRole="Customer" ToRole="OrderService" />
+    <NavigationProperty Name="ServiceBonusCustomers" Relationship="Self.FK__ServerBon__Custo__370627FE" FromRole="Customer" ToRole="ServiceBonusCustomer" />
+    <NavigationProperty Name="CustomerRank" Relationship="Self.FK_Customer_CustomerRank" FromRole="Customer" ToRole="CustomerRank" />
+    <NavigationProperty Name="District" Relationship="Self.FK_Customer_District" FromRole="Customer" ToRole="District" />
+    <NavigationProperty Name="Province" Relationship="Self.FK_Customer_Province" FromRole="Customer" ToRole="Province" />
+    <NavigationProperty Name="Members" Relationship="Self.FK_Member_Customer" FromRole="Customer" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="CustomerLocation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Longi" Type="Double" Nullable="false" />
+    <Property Name="Lati" Type="Double" Nullable="false" />
+    <Property Name="PlaceID" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__CustomerL__Custo__25E688F4" FromRole="CustomerLocation" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="CustomerOffice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VAT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BankName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Account" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__CustomerO__Custo__10216507" FromRole="CustomerOffice" ToRole="Customer" />
+    <NavigationProperty Name="OrderServices" Relationship="Self.FK__CustomerO__Custo__10216337" FromRole="CustomerOffice" ToRole="OrderService" />
+  </EntityType>
+  <EntityType Name="CustomerRank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DescriptionEn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DescriptionVi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="policyVN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Policy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrtherGift" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ProfitCash" Type="Int32" Nullable="false" />
+    <Property Name="ProfitVPN" Type="Int32" Nullable="false" />
+    <Property Name="MinPoint" Type="Int32" Nullable="false" />
+    <Property Name="MaxPoint" Type="Int32" />
+    <Property Name="PointBonus" Type="Int32" />
+    <Property Name="ProfitExtraBirthDay" Type="Int32" />
+    <Property Name="Level" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TitleVi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TitleEn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_CustomerRank" FromRole="CustomerRank" ToRole="Customer" />
+    <NavigationProperty Name="CustomerRankServiceBonus" Relationship="Self.FK__CustomerR__RankI__4CF5691D" FromRole="CustomerRank" ToRole="CustomerRankServiceBonus" />
+    <NavigationProperty Name="ServiceBonusCustomers" Relationship="Self.FK__ServerBon__RankI__37FA4C37" FromRole="CustomerRank" ToRole="ServiceBonusCustomer" />
+  </EntityType>
+  <EntityType Name="CustomerRankServiceBonu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RankID" Type="Int32" Nullable="false" />
+    <Property Name="ServiceID" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CustomerRank" Relationship="Self.FK__CustomerR__RankI__4CF5691D" FromRole="CustomerRankServiceBonus" ToRole="CustomerRank" />
+    <NavigationProperty Name="Service" Relationship="Self.FK__CustomerR__Servi__01D345B0" FromRole="CustomerRankServiceBonus" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="Day">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Day1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClassShiftID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ClassShift" Relationship="Self.FK__Days__ClasShiftI__02C769E9" FromRole="Days" ToRole="ClassShift" />
+  </EntityType>
+  <EntityType Name="DeviceHistoryLogin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Platform" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DateLogin" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="MemberID" Type="Int32" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_DeviceHistoryLogin_Member" FromRole="DeviceHistoryLogin" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProvinceCode" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Areas" Relationship="Self.FK__Area__DistrictCo__589C25F3" FromRole="District" ToRole="Area" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_District" FromRole="District" ToRole="Customer" />
+    <NavigationProperty Name="Province" Relationship="Self.FK_District_Province" FromRole="District" ToRole="Province" />
+  </EntityType>
+  <EntityType Name="HistoryRankingPoint">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="Point" Type="Int32" Nullable="false" />
+    <Property Name="TotalPoint" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__HistoryRa__Custo__6F7F8B4B" FromRole="HistoryRankingPoint" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Intro">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="MainServiceAdditionService">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MainServiceID" Type="Int32" Nullable="false" />
+    <Property Name="AdditionServiceID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Service" Relationship="Self.FK__MainServi__Addit__05A3D694" FromRole="MainServiceAdditionService" ToRole="Service" />
+    <NavigationProperty Name="Service1" Relationship="Self.FK__MainServi__Addit__0697FACD" FromRole="MainServiceAdditionService" ToRole="Service" />
+    <NavigationProperty Name="Service2" Relationship="Self.FK__MainServi__Addit__078C1F06" FromRole="MainServiceAdditionService" ToRole="Service" />
+    <NavigationProperty Name="Service3" Relationship="Self.FK__MainServi__Addit__2704CA5F" FromRole="MainServiceAdditionService" ToRole="Service" />
+    <NavigationProperty Name="Service4" Relationship="Self.FK__MainServi__Addit__27F8EE98" FromRole="MainServiceAdditionService" ToRole="Service" />
+    <NavigationProperty Name="Service5" Relationship="Self.FK__MainServi__MainS__0880433F" FromRole="MainServiceAdditionService" ToRole="Service" />
+    <NavigationProperty Name="Service6" Relationship="Self.FK__MainServi__MainS__09746778" FromRole="MainServiceAdditionService" ToRole="Service" />
+    <NavigationProperty Name="Service7" Relationship="Self.FK__MainServi__MainS__2AD55B43" FromRole="MainServiceAdditionService" ToRole="Service" />
+    <NavigationProperty Name="Service8" Relationship="Self.FK__MainServi__MainS__2BC97F7C" FromRole="MainServiceAdditionService" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AgentID" Type="Int32" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="User" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeviceID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Token" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ConfirmCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsLogin" Type="Int32" />
+    <Property Name="ExpriceDateOTP" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="QtyOTP" Type="Int32" />
+    <Property Name="OTPDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Lang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Agent" Relationship="Self.FK_Member_Agent" FromRole="Member" ToRole="Agent" />
+    <NavigationProperty Name="BankMembers" Relationship="Self.FK__BankMembe__Membe__0697FACD" FromRole="Member" ToRole="BankMember" />
+    <NavigationProperty Name="BankMembers1" Relationship="Self.FK__BankMembe__Membe__4C6B5938" FromRole="Member" ToRole="BankMember" />
+    <NavigationProperty Name="BankMembers2" Relationship="Self.FK__BrankMemb__Membe__4979DDF4" FromRole="Member" ToRole="BankMember" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Member_Customer" FromRole="Member" ToRole="Customer" />
+    <NavigationProperty Name="DeviceHistoryLogins" Relationship="Self.FK_DeviceHistoryLogin_Member" FromRole="Member" ToRole="DeviceHistoryLogin" />
+    <NavigationProperty Name="MembersTransactionHistories" Relationship="Self.FK__MembersPo__Membe__2BC97F7C" FromRole="Member" ToRole="MembersTransactionHistory" />
+    <NavigationProperty Name="Notifications" Relationship="Self.FK__Notificat__Membe__7A672E12" FromRole="Member" ToRole="Notification" />
+    <NavigationProperty Name="Wallets" Relationship="Self.FK__Wallet__MemberID__44FF419A" FromRole="Member" ToRole="Wallet" />
+    <NavigationProperty Name="RequestForAdmins" Relationship="Self.FK_RequestForAdmin_Member" FromRole="Member" ToRole="RequestForAdmin" />
+  </EntityType>
+  <EntityType Name="MembersTransactionHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberID" Type="Int32" Nullable="false" />
+    <Property Name="OrderServiceID" Type="Int32" />
+    <Property Name="ProductOrderID" Type="Int32" />
+    <Property Name="ComboCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BankMemberID" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Point" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="TransactionType" Type="Int32" Nullable="false" />
+    <Property Name="TransactionID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BeforeBalance" Type="Int32" Nullable="false" />
+    <Property Name="AfterBalance" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ConfirmDate" Type="DateTime" Precision="3" />
+    <Property Name="Icon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="WalletID" Type="Int32" />
+    <Property Name="CodeVNPay" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="KeyVNPay" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="IsExtra" Type="Int32" />
+    <NavigationProperty Name="BankMember" Relationship="Self.FK_MembersTransactionHistory_BankMember" FromRole="MembersTransactionHistory" ToRole="BankMember" />
+    <NavigationProperty Name="Member" Relationship="Self.FK__MembersPo__Membe__2BC97F7C" FromRole="MembersTransactionHistory" ToRole="Member" />
+    <NavigationProperty Name="OrderService" Relationship="Self.FK__MembersPo__Order__2CBDA3B5" FromRole="MembersTransactionHistory" ToRole="OrderService" />
+    <NavigationProperty Name="ProductOrder" Relationship="Self.FK__MembersPo__Produ__2DB1C7EE" FromRole="MembersTransactionHistory" ToRole="ProductOrder" />
+    <NavigationProperty Name="Wallet" Relationship="Self.FK_MembersPointHistory_Wallet" FromRole="MembersTransactionHistory" ToRole="Wallet" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UrlImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OrderDisplay" Type="Int32" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="TypeSend" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="IsShowCreate" Type="Int32" />
+    <Property Name="isAdvertusement" Type="Int32" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CategoryNew" Relationship="Self.FK__News__CategoryID__1699586C" FromRole="News" ToRole="CategoryNews" />
+    <NavigationProperty Name="Promotions" Relationship="Self.FK__Promotion__NewsI__4321E620" FromRole="News" ToRole="Promotion" />
+    <NavigationProperty Name="User" Relationship="Self.FK_News_User" FromRole="News" ToRole="User" />
+    <NavigationProperty Name="Notifications" Relationship="Self.FK_Notification_News" FromRole="News" ToRole="Notification" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberID" Type="Int32" Nullable="false" />
+    <Property Name="NewsID" Type="Int32" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="IsRead" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OrderServiceID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Member" Relationship="Self.FK__Notificat__Membe__7A672E12" FromRole="Notification" ToRole="Member" />
+    <NavigationProperty Name="News" Relationship="Self.FK_Notification_News" FromRole="Notification" ToRole="News" />
+    <NavigationProperty Name="OrderService" Relationship="Self.FK_Notification_OrderItem" FromRole="Notification" ToRole="OrderService" />
+    <NavigationProperty Name="ProductOrder" Relationship="Self.FK_Notification_ProductOrder" FromRole="Notification" ToRole="ProductOrder" />
+  </EntityType>
+  <EntityType Name="OrderService">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="AreaID" Type="Int32" />
+    <Property Name="AgentID" Type="Int32" />
+    <Property Name="FirstAgentID" Type="Int32" />
+    <Property Name="OrtherAgent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AgentCancel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CarCustomerID" Type="Int32" />
+    <Property Name="BookingNow" Type="Int32" Nullable="false" />
+    <Property Name="IsInDoor" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="TotalPrice" Type="Int32" Nullable="false" />
+    <Property Name="BasePrice" Type="Int32" Nullable="false" />
+    <Property Name="CouponPoint" Type="Int32" />
+    <Property Name="UsePoint" Type="Int32" />
+    <Property Name="Rate" Type="Int32" />
+    <Property Name="CouponID" Type="Int32" />
+    <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoteRate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReasonAgentCancel" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="IsRate" Type="Int32" />
+    <Property Name="PaymentType" Type="Int32" />
+    <Property Name="StatusPayment" Type="Int32" />
+    <Property Name="TotalEstTime" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ConfirmDate" Type="DateTime" Precision="3" />
+    <Property Name="CompletedDate" Type="DateTime" Precision="3" />
+    <Property Name="BookingDate" Type="DateTime" Precision="3" />
+    <Property Name="EstBookingDate" Type="DateTime" Precision="3" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="Longitude" Type="Double" Nullable="false" />
+    <Property Name="Latitude" Type="Double" Nullable="false" />
+    <Property Name="ComboPrice" Type="Int32" />
+    <Property Name="ServiceComboSegmentID" Type="Int32" />
+    <Property Name="CodeCombo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReasonCancel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CarNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ParkNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PlaceID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsPushFirst" Type="Int32" />
+    <Property Name="MemberCancel" Type="Int32" />
+    <Property Name="UserCancel" Type="Int32" />
+    <Property Name="IsExportVAT" Type="Int32" />
+    <Property Name="MainDiscount" Type="Int32" />
+    <Property Name="MainBasePrice" Type="Int32" />
+    <Property Name="MainPrice" Type="Int32" />
+    <Property Name="ExtraPaymentType" Type="Int32" />
+    <Property Name="ExtraDiscount" Type="Int32" />
+    <Property Name="ExtraBasePrice" Type="Int32" />
+    <Property Name="ExtraPrice" Type="Int32" />
+    <Property Name="OfficeID" Type="Int32" />
+    <Property Name="BonusVAT" Type="Int32" />
+    <Property Name="WasherNote" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Agent" Relationship="Self.FK__OrderItem__Agent__71D1E811" FromRole="OrderService" ToRole="Agent" />
+    <NavigationProperty Name="Area" Relationship="Self.FK_OrderItem_Area" FromRole="OrderService" ToRole="Area" />
+    <NavigationProperty Name="CarCustomer" Relationship="Self.FK_OrderItem_CarCustomer" FromRole="OrderService" ToRole="CarCustomer" />
+    <NavigationProperty Name="Coupon" Relationship="Self.FK__OrderItem__Coupo__74AE54BC" FromRole="OrderService" ToRole="Coupon" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__OrderItem__Custo__70DDC3D8" FromRole="OrderService" ToRole="Customer" />
+    <NavigationProperty Name="CustomerOffice" Relationship="Self.FK__CustomerO__Custo__10216337" FromRole="OrderService" ToRole="CustomerOffice" />
+    <NavigationProperty Name="MembersTransactionHistories" Relationship="Self.FK__MembersPo__Order__2CBDA3B5" FromRole="OrderService" ToRole="MembersTransactionHistory" />
+    <NavigationProperty Name="Notifications" Relationship="Self.FK_Notification_OrderItem" FromRole="OrderService" ToRole="Notification" />
+    <NavigationProperty Name="OrderServiceImages" Relationship="Self.FK__OrderItem__Order__231F2AE2" FromRole="OrderService" ToRole="OrderServiceImage" />
+    <NavigationProperty Name="OrderServiceDetails" Relationship="Self.FK__OrderItem__Order__6EC0713C" FromRole="OrderService" ToRole="OrderServiceDetail" />
+    <NavigationProperty Name="OrderServiceImageCars" Relationship="Self.FK__OrderServ__Order__4870AB22" FromRole="OrderService" ToRole="OrderServiceImageCar" />
+    <NavigationProperty Name="RequestForAdmins" Relationship="Self.FK__RequestFo__Order__4F1DA8B1" FromRole="OrderService" ToRole="RequestForAdmin" />
+    <NavigationProperty Name="ServiceComboSegment" Relationship="Self.FK_OrderService_ServiceComboSegment" FromRole="OrderService" ToRole="ServiceComboSegment" />
+  </EntityType>
+  <EntityType Name="OrderServiceDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderItemID" Type="Int32" Nullable="false" />
+    <Property Name="ServiceDetailID" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="EstTime" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsFree" Type="Int32" />
+    <Property Name="IsPayment" Type="Int32" />
+    <Property Name="IsExtra" Type="Int32" />
+    <NavigationProperty Name="OrderService" Relationship="Self.FK__OrderItem__Order__6EC0713C" FromRole="OrderServiceDetail" ToRole="OrderService" />
+    <NavigationProperty Name="ServicePrice" Relationship="Self.FK_OrderItemDetail_ItemDetail" FromRole="OrderServiceDetail" ToRole="ServicePrice" />
+  </EntityType>
+  <EntityType Name="OrderServiceImage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderServiceID" Type="Int32" Nullable="false" />
+    <Property Name="ServiceRequiteImageID" Type="Int32" />
+    <Property Name="TypeImage" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderDisplay" Type="Int32" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="OrderService" Relationship="Self.FK__OrderItem__Order__231F2AE2" FromRole="OrderServiceImage" ToRole="OrderService" />
+    <NavigationProperty Name="ServiceRequiteImage" Relationship="Self.FK_OrderServiceImage_ServiceRequiteImage" FromRole="OrderServiceImage" ToRole="ServiceRequiteImage" />
+  </EntityType>
+  <EntityType Name="OrderServiceImageCar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="ComboCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="OrderService" Relationship="Self.FK__OrderServ__Order__4870AB22" FromRole="OrderServiceImageCar" ToRole="OrderService" />
+  </EntityType>
+  <EntityType Name="PaymentInstructionNote">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Policy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="Int32" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Lang" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameVN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NameEN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Point" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="BasePrice" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Discount" Type="Int32" />
+    <Property Name="QTY" Type="Int32" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__ProductID__3BFFE745" FromRole="Product" ToRole="Cart" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__Product__Categor__07C12930" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="ProductImages" Relationship="Self.FK__ProductIm__Produ__2334397B" FromRole="Product" ToRole="ProductImage" />
+    <NavigationProperty Name="ProductOrderDetails" Relationship="Self.FK__ProductOr__Produ__42ACE4D4" FromRole="Product" ToRole="ProductOrderDetail" />
+  </EntityType>
+  <EntityType Name="ProductImage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__ProductIm__Produ__2334397B" FromRole="ProductImage" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="ProductOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="TotalPrice" Type="Int32" Nullable="false" />
+    <Property Name="AgentID" Type="Int32" Nullable="false" />
+    <Property Name="DepositPoint" Type="Int32" />
+    <Property Name="ProfitPoint" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CouponID" Type="Int32" />
+    <Property Name="BasePrice" Type="Int32" />
+    <Property Name="Discount" Type="Int32" />
+    <Property Name="ConfirmDate" Type="DateTime" Precision="3" />
+    <Property Name="CompleteDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Agent" Relationship="Self.FK_ProductOrder_Agent" FromRole="ProductOrder" ToRole="Agent" />
+    <NavigationProperty Name="Coupon" Relationship="Self.FK_ProductOrder_Coupon" FromRole="ProductOrder" ToRole="Coupon" />
+    <NavigationProperty Name="MembersTransactionHistories" Relationship="Self.FK__MembersPo__Produ__2DB1C7EE" FromRole="ProductOrder" ToRole="MembersTransactionHistory" />
+    <NavigationProperty Name="Notifications" Relationship="Self.FK_Notification_ProductOrder" FromRole="ProductOrder" ToRole="Notification" />
+    <NavigationProperty Name="ProductOrderDetails" Relationship="Self.FK__ProductOr__Produ__43A1090D" FromRole="ProductOrder" ToRole="ProductOrderDetail" />
+  </EntityType>
+  <EntityType Name="ProductOrderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="ProductOrderID" Type="Int32" Nullable="false" />
+    <Property Name="QTY" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__ProductOr__Produ__42ACE4D4" FromRole="ProductOrderDetail" ToRole="Product" />
+    <NavigationProperty Name="ProductOrder" Relationship="Self.FK__ProductOr__Produ__43A1090D" FromRole="ProductOrderDetail" ToRole="ProductOrder" />
+  </EntityType>
+  <EntityType Name="Promotion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NewsID" Type="Int32" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="News" Relationship="Self.FK__Promotion__NewsI__4321E620" FromRole="Promotion" ToRole="News" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Province" FromRole="Province" ToRole="Customer" />
+    <NavigationProperty Name="Districts" Relationship="Self.FK_District_Province" FromRole="Province" ToRole="District" />
+  </EntityType>
+  <EntityType Name="QA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderDisplay" Type="Int32" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="QACustomer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderDisplay" Type="Int32" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Reason">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContentVN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContentEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CraeteDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="RequestForAdmin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="MemberID" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="ConfirmDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_RequestForAdmin_Member" FromRole="RequestForAdmin" ToRole="Member" />
+    <NavigationProperty Name="OrderService" Relationship="Self.FK__RequestFo__Order__4F1DA8B1" FromRole="RequestForAdmin" ToRole="OrderService" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NameVN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NameEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Icon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="OrderDisplay" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DescriptionEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CustomerRankServiceBonus" Relationship="Self.FK__CustomerR__Servi__01D345B0" FromRole="Service" ToRole="CustomerRankServiceBonus" />
+    <NavigationProperty Name="MainServiceAdditionServices" Relationship="Self.FK__MainServi__Addit__05A3D694" FromRole="Service" ToRole="MainServiceAdditionService" />
+    <NavigationProperty Name="MainServiceAdditionServices1" Relationship="Self.FK__MainServi__Addit__0697FACD" FromRole="Service" ToRole="MainServiceAdditionService" />
+    <NavigationProperty Name="MainServiceAdditionServices2" Relationship="Self.FK__MainServi__Addit__078C1F06" FromRole="Service" ToRole="MainServiceAdditionService" />
+    <NavigationProperty Name="MainServiceAdditionServices3" Relationship="Self.FK__MainServi__Addit__2704CA5F" FromRole="Service" ToRole="MainServiceAdditionService" />
+    <NavigationProperty Name="MainServiceAdditionServices4" Relationship="Self.FK__MainServi__Addit__27F8EE98" FromRole="Service" ToRole="MainServiceAdditionService" />
+    <NavigationProperty Name="MainServiceAdditionServices5" Relationship="Self.FK__MainServi__MainS__0880433F" FromRole="Service" ToRole="MainServiceAdditionService" />
+    <NavigationProperty Name="MainServiceAdditionServices6" Relationship="Self.FK__MainServi__MainS__09746778" FromRole="Service" ToRole="MainServiceAdditionService" />
+    <NavigationProperty Name="MainServiceAdditionServices7" Relationship="Self.FK__MainServi__MainS__2AD55B43" FromRole="Service" ToRole="MainServiceAdditionService" />
+    <NavigationProperty Name="MainServiceAdditionServices8" Relationship="Self.FK__MainServi__MainS__2BC97F7C" FromRole="Service" ToRole="MainServiceAdditionService" />
+    <NavigationProperty Name="ServiceBonusCustomers" Relationship="Self.FK__ServerBon__Servi__38EE7070" FromRole="Service" ToRole="ServiceBonusCustomer" />
+    <NavigationProperty Name="ServiceRequiteImages" Relationship="Self.FK__ServiceRe__Servi__0CFADF99" FromRole="Service" ToRole="ServiceRequiteImage" />
+    <NavigationProperty Name="ServicePrices" Relationship="Self.FK_ItemDetail_Item" FromRole="Service" ToRole="ServicePrice" />
+    <NavigationProperty Name="ServiceComboDetails" Relationship="Self.FK_ServiceComboDetail_Service" FromRole="Service" ToRole="ServiceComboDetail" />
+    <NavigationProperty Name="ServiceImages" Relationship="Self.FK_ServiceImage_Service" FromRole="Service" ToRole="ServiceImage" />
+  </EntityType>
+  <EntityType Name="ServiceBonusCustomer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="RankID" Type="Int32" Nullable="false" />
+    <Property Name="ServiceID" Type="Int32" Nullable="false" />
+    <Property Name="ExpriceTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="UseDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__ServerBon__Custo__370627FE" FromRole="ServiceBonusCustomer" ToRole="Customer" />
+    <NavigationProperty Name="CustomerRank" Relationship="Self.FK__ServerBon__RankI__37FA4C37" FromRole="ServiceBonusCustomer" ToRole="CustomerRank" />
+    <NavigationProperty Name="Service" Relationship="Self.FK__ServerBon__Servi__38EE7070" FromRole="ServiceBonusCustomer" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="ServiceCombo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComboCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameVN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NameEN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="icon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Depcription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DescriptionEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ServiceComboSegments" Relationship="Self.FK__ItemCombo__ItemC__6166761E" FromRole="ServiceCombo" ToRole="ServiceComboSegment" />
+    <NavigationProperty Name="ServiceComboDetails" Relationship="Self.FK_ServiceComboDetail_ServiceCombo" FromRole="ServiceCombo" ToRole="ServiceComboDetail" />
+    <NavigationProperty Name="ServiceImages" Relationship="Self.FK_ServiceImage_ServiceCombo" FromRole="ServiceCombo" ToRole="ServiceImage" />
+  </EntityType>
+  <EntityType Name="ServiceComboDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceID" Type="Int32" Nullable="false" />
+    <Property Name="ServiceComboID" Type="Int32" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_ServiceComboDetail_Service" FromRole="ServiceComboDetail" ToRole="Service" />
+    <NavigationProperty Name="ServiceCombo" Relationship="Self.FK_ServiceComboDetail_ServiceCombo" FromRole="ServiceComboDetail" ToRole="ServiceCombo" />
+  </EntityType>
+  <EntityType Name="ServiceComboSegment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceComboID" Type="Int32" Nullable="false" />
+    <Property Name="CarSegmentID" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="BasaPrice" Type="Int32" />
+    <Property Name="Discount" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USDBasePrice" Type="Double" />
+    <Property Name="USDPrice" Type="Double" />
+    <NavigationProperty Name="CarSegment" Relationship="Self.FK__ItemCombo__CarSe__634EBE90" FromRole="ServiceComboSegment" ToRole="CarSegment" />
+    <NavigationProperty Name="OrderServices" Relationship="Self.FK_OrderService_ServiceComboSegment" FromRole="ServiceComboSegment" ToRole="OrderService" />
+    <NavigationProperty Name="ServiceCombo" Relationship="Self.FK__ItemCombo__ItemC__6166761E" FromRole="ServiceComboSegment" ToRole="ServiceCombo" />
+  </EntityType>
+  <EntityType Name="ServiceImage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceID" Type="Int32" />
+    <Property Name="ServiceComboID" Type="Int32" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_ServiceImage_Service" FromRole="ServiceImage" ToRole="Service" />
+    <NavigationProperty Name="ServiceCombo" Relationship="Self.FK_ServiceImage_ServiceCombo" FromRole="ServiceImage" ToRole="ServiceCombo" />
+  </EntityType>
+  <EntityType Name="ServicePrice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceID" Type="Int32" />
+    <Property Name="CarSegmentID" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="BasePrice" Type="Int32" />
+    <Property Name="Discount" Type="Int32" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EstTime" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Name" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="USDBasePrice" Type="Double" />
+    <Property Name="USDPrice" Type="Double" />
+    <NavigationProperty Name="CarSegment" Relationship="Self.FK__ItemDetai__CarSe__339FAB6E" FromRole="ServicePrice" ToRole="CarSegment" />
+    <NavigationProperty Name="OrderServiceDetails" Relationship="Self.FK_OrderItemDetail_ItemDetail" FromRole="ServicePrice" ToRole="OrderServiceDetail" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_ItemDetail_Item" FromRole="ServicePrice" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="ServiceRequiteImage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceID" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OrderDisplay" Type="Int32" />
+    <Property Name="TypeImage" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="OrderServiceImages" Relationship="Self.FK_OrderServiceImage_ServiceRequiteImage" FromRole="ServiceRequiteImage" ToRole="OrderServiceImage" />
+    <NavigationProperty Name="Service" Relationship="Self.FK__ServiceRe__Servi__0CFADF99" FromRole="ServiceRequiteImage" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="Shift">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="shift1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ClassShiftID" Type="Int32" />
+    <NavigationProperty Name="ClassShift" Relationship="Self.FK_Shift_ClassShift" FromRole="Shift" ToRole="ClassShift" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PassWord" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Role" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Dob" Type="DateTime" Precision="3" />
+    <Property Name="Identifycation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sex" Type="Int32" />
+    <Property Name="Avatar" Type="String" MaxLength="750" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="News" Relationship="Self.FK_News_User" FromRole="User" ToRole="News" />
+  </EntityType>
+  <EntityType Name="Wallet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberID" Type="Int32" Nullable="false" />
+    <Property Name="Balance" Type="Int32" Nullable="false" />
+    <Property Name="TYPE" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Member" Relationship="Self.FK__Wallet__MemberID__44FF419A" FromRole="Wallet" ToRole="Member" />
+    <NavigationProperty Name="MembersTransactionHistories" Relationship="Self.FK_MembersPointHistory_Wallet" FromRole="Wallet" ToRole="MembersTransactionHistory" />
+  </EntityType>
+  <Association Name="FK__AgentArea__Agent__5F492382">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+    <End Role="AgentArea" Type="Self.AgentArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AgentArea">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AgentImag__Agent__6C23FBB3">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+    <End Role="AgentImage" Type="Self.AgentImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AgentImage">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cart__WasherID__3B0BC30C">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="WasherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderItem__Agent__71D1E811">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="0..1" />
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderService">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agent_ConfigCommission">
+    <End Role="ConfigCommission" Type="Self.ConfigCommission" Multiplicity="0..1" />
+    <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConfigCommission">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Agent">
+        <PropertyRef Name="CommissionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CouponWasher_Agent">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="0..1" />
+    <End Role="CouponWasher" Type="Self.CouponWasher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CouponWasher">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Member_Agent">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="0..1" />
+    <End Role="Member" Type="Self.Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Member">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductOrder_Agent">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+    <End Role="ProductOrder" Type="Self.ProductOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductOrder">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AgentArea__AreaI__603D47BB">
+    <End Role="Area" Type="Self.Area" Multiplicity="1" />
+    <End Role="AgentArea" Type="Self.AgentArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AgentArea">
+        <PropertyRef Name="AreaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Area__DistrictCo__589C25F3">
+    <End Role="District" Type="Self.District" Multiplicity="1" />
+    <End Role="Area" Type="Self.Area" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Area">
+        <PropertyRef Name="DistrictCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItem_Area">
+    <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderService">
+        <PropertyRef Name="AreaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BrankMemb__Brank__4885B9BB">
+    <End Role="Bank" Type="Self.Bank" Multiplicity="1" />
+    <End Role="BankMember" Type="Self.BankMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BankMember">
+        <PropertyRef Name="BankID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BankMembe__Membe__0697FACD">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="BankMember" Type="Self.BankMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BankMember">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BankMembe__Membe__4C6B5938">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="BankMember" Type="Self.BankMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BankMember">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BrankMemb__Membe__4979DDF4">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="BankMember" Type="Self.BankMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BankMember">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MembersTransactionHistory_BankMember">
+    <End Role="BankMember" Type="Self.BankMember" Multiplicity="0..1" />
+    <End Role="MembersTransactionHistory" Type="Self.MembersTransactionHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BankMember">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MembersTransactionHistory">
+        <PropertyRef Name="BankMemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarMode__CarBran__1DE57479">
+    <End Role="CarBrand" Type="Self.CarBrand" Multiplicity="0..1" />
+    <End Role="CarModel" Type="Self.CarModel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarBrand">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CarModel">
+        <PropertyRef Name="CarBrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarCustom__CarMo__37A5467C">
+    <End Role="CarModel" Type="Self.CarModel" Multiplicity="1" />
+    <End Role="CarCustomer" Type="Self.CarCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarModel">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CarCustomer">
+        <PropertyRef Name="CarModeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarCustom__Custo__36B12243">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="CarCustomer" Type="Self.CarCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CarCustomer">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarImage__CarCus__77DFC722">
+    <End Role="CarCustomer" Type="Self.CarCustomer" Multiplicity="1" />
+    <End Role="CarImage" Type="Self.CarImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarCustomer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CarImage">
+        <PropertyRef Name="CarCustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_CarCustomer">
+    <End Role="CarCustomer" Type="Self.CarCustomer" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarCustomer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="CurrentCarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItem_CarCustomer">
+    <End Role="CarCustomer" Type="Self.CarCustomer" Multiplicity="0..1" />
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarCustomer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderService">
+        <PropertyRef Name="CarCustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarMode__CarSegm__1ED998B2">
+    <End Role="CarSegment" Type="Self.CarSegment" Multiplicity="0..1" />
+    <End Role="CarModel" Type="Self.CarModel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarSegment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CarModel">
+        <PropertyRef Name="CarSegmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ItemCombo__CarSe__634EBE90">
+    <End Role="CarSegment" Type="Self.CarSegment" Multiplicity="1" />
+    <End Role="ServiceComboSegment" Type="Self.ServiceComboSegment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarSegment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServiceComboSegment">
+        <PropertyRef Name="CarSegmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ItemDetai__CarSe__339FAB6E">
+    <End Role="CarSegment" Type="Self.CarSegment" Multiplicity="1" />
+    <End Role="ServicePrice" Type="Self.ServicePrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarSegment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServicePrice">
+        <PropertyRef Name="CarSegmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cart__ProductID__3BFFE745">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Categor__07C12930">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__News__CategoryID__1699586C">
+    <End Role="CategoryNews" Type="Self.CategoryNew" Multiplicity="1" />
+    <End Role="News" Type="Self.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoryNews">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Days__ClasShiftI__02C769E9">
+    <End Role="ClassShift" Type="Self.ClassShift" Multiplicity="1" />
+    <End Role="Days" Type="Self.Day" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassShift">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Days">
+        <PropertyRef Name="ClassShiftID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shift_ClassShift">
+    <End Role="ClassShift" Type="Self.ClassShift" Multiplicity="0..1" />
+    <End Role="Shift" Type="Self.Shift" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassShift">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Shift">
+        <PropertyRef Name="ClassShiftID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CouponCus__Coupo__54CB950F">
+    <End Role="Coupon" Type="Self.Coupon" Multiplicity="1" />
+    <End Role="CouponCustomer" Type="Self.CouponCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coupon">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CouponCustomer">
+        <PropertyRef Name="CouponID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderItem__Coupo__74AE54BC">
+    <End Role="Coupon" Type="Self.Coupon" Multiplicity="0..1" />
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coupon">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderService">
+        <PropertyRef Name="CouponID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CouponWasher_Coupon">
+    <End Role="Coupon" Type="Self.Coupon" Multiplicity="0..1" />
+    <End Role="CouponWasher" Type="Self.CouponWasher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coupon">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CouponWasher">
+        <PropertyRef Name="CouponID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductOrder_Coupon">
+    <End Role="Coupon" Type="Self.Coupon" Multiplicity="0..1" />
+    <End Role="ProductOrder" Type="Self.ProductOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coupon">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductOrder">
+        <PropertyRef Name="CouponID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CouponCus__Custo__53D770D6">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="CouponCustomer" Type="Self.CouponCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CouponCustomer">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerL__Custo__25E688F4">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="CustomerLocation" Type="Self.CustomerLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CustomerLocation">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerO__Custo__10216507">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="CustomerOffice" Type="Self.CustomerOffice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CustomerOffice">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HistoryRa__Custo__6F7F8B4B">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="HistoryRankingPoint" Type="Self.HistoryRankingPoint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HistoryRankingPoint">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderItem__Custo__70DDC3D8">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderService">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ServerBon__Custo__370627FE">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="ServiceBonusCustomer" Type="Self.ServiceBonusCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServiceBonusCustomer">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_CustomerRank">
+    <End Role="CustomerRank" Type="Self.CustomerRank" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerRank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="CustomerRankID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_District">
+    <End Role="District" Type="Self.District" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="DistrictCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Province">
+    <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="ProvinceCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Member_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Member" Type="Self.Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Member">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerO__Custo__10216337">
+    <End Role="CustomerOffice" Type="Self.CustomerOffice" Multiplicity="0..1" />
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerOffice">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderService">
+        <PropertyRef Name="OfficeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerR__RankI__4CF5691D">
+    <End Role="CustomerRank" Type="Self.CustomerRank" Multiplicity="1" />
+    <End Role="CustomerRankServiceBonus" Type="Self.CustomerRankServiceBonu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerRank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CustomerRankServiceBonus">
+        <PropertyRef Name="RankID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ServerBon__RankI__37FA4C37">
+    <End Role="CustomerRank" Type="Self.CustomerRank" Multiplicity="1" />
+    <End Role="ServiceBonusCustomer" Type="Self.ServiceBonusCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerRank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServiceBonusCustomer">
+        <PropertyRef Name="RankID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerR__Servi__01D345B0">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="CustomerRankServiceBonus" Type="Self.CustomerRankServiceBonu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CustomerRankServiceBonus">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceHistoryLogin_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="DeviceHistoryLogin" Type="Self.DeviceHistoryLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeviceHistoryLogin">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_District_Province">
+    <End Role="Province" Type="Self.Province" Multiplicity="1" />
+    <End Role="District" Type="Self.District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="ProvinceCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MainServi__Addit__05A3D694">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="MainServiceAdditionService" Type="Self.MainServiceAdditionService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MainServiceAdditionService">
+        <PropertyRef Name="AdditionServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MainServi__Addit__0697FACD">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="MainServiceAdditionService" Type="Self.MainServiceAdditionService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MainServiceAdditionService">
+        <PropertyRef Name="AdditionServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MainServi__Addit__078C1F06">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="MainServiceAdditionService" Type="Self.MainServiceAdditionService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MainServiceAdditionService">
+        <PropertyRef Name="AdditionServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MainServi__Addit__2704CA5F">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="MainServiceAdditionService" Type="Self.MainServiceAdditionService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MainServiceAdditionService">
+        <PropertyRef Name="AdditionServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MainServi__Addit__27F8EE98">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="MainServiceAdditionService" Type="Self.MainServiceAdditionService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MainServiceAdditionService">
+        <PropertyRef Name="AdditionServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MainServi__MainS__0880433F">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="MainServiceAdditionService" Type="Self.MainServiceAdditionService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MainServiceAdditionService">
+        <PropertyRef Name="MainServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MainServi__MainS__09746778">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="MainServiceAdditionService" Type="Self.MainServiceAdditionService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MainServiceAdditionService">
+        <PropertyRef Name="MainServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MainServi__MainS__2AD55B43">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="MainServiceAdditionService" Type="Self.MainServiceAdditionService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MainServiceAdditionService">
+        <PropertyRef Name="MainServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MainServi__MainS__2BC97F7C">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="MainServiceAdditionService" Type="Self.MainServiceAdditionService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MainServiceAdditionService">
+        <PropertyRef Name="MainServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MembersPo__Membe__2BC97F7C">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="MembersTransactionHistory" Type="Self.MembersTransactionHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MembersTransactionHistory">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificat__Membe__7A672E12">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wallet__MemberID__44FF419A">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="Wallet" Type="Self.Wallet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Wallet">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequestForAdmin_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="RequestForAdmin" Type="Self.RequestForAdmin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RequestForAdmin">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MembersPo__Order__2CBDA3B5">
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="0..1" />
+    <End Role="MembersTransactionHistory" Type="Self.MembersTransactionHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderService">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MembersTransactionHistory">
+        <PropertyRef Name="OrderServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MembersPo__Produ__2DB1C7EE">
+    <End Role="ProductOrder" Type="Self.ProductOrder" Multiplicity="0..1" />
+    <End Role="MembersTransactionHistory" Type="Self.MembersTransactionHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MembersTransactionHistory">
+        <PropertyRef Name="ProductOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MembersPointHistory_Wallet">
+    <End Role="Wallet" Type="Self.Wallet" Multiplicity="0..1" />
+    <End Role="MembersTransactionHistory" Type="Self.MembersTransactionHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wallet">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MembersTransactionHistory">
+        <PropertyRef Name="WalletID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Promotion__NewsI__4321E620">
+    <End Role="News" Type="Self.News" Multiplicity="1" />
+    <End Role="Promotion" Type="Self.Promotion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="News">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Promotion">
+        <PropertyRef Name="NewsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_News_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="News" Type="Self.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notification_News">
+    <End Role="News" Type="Self.News" Multiplicity="0..1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="News">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="NewsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notification_OrderItem">
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="0..1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderService">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="OrderServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notification_ProductOrder">
+    <End Role="ProductOrder" Type="Self.ProductOrder" Multiplicity="0..1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderItem__Order__231F2AE2">
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="1" />
+    <End Role="OrderServiceImage" Type="Self.OrderServiceImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderService">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderServiceImage">
+        <PropertyRef Name="OrderServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderItem__Order__6EC0713C">
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="1" />
+    <End Role="OrderServiceDetail" Type="Self.OrderServiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderService">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderServiceDetail">
+        <PropertyRef Name="OrderItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderServ__Order__4870AB22">
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="0..1" />
+    <End Role="OrderServiceImageCar" Type="Self.OrderServiceImageCar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderService">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderServiceImageCar">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RequestFo__Order__4F1DA8B1">
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="0..1" />
+    <End Role="RequestForAdmin" Type="Self.RequestForAdmin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderService">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RequestForAdmin">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderService_ServiceComboSegment">
+    <End Role="ServiceComboSegment" Type="Self.ServiceComboSegment" Multiplicity="0..1" />
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceComboSegment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderService">
+        <PropertyRef Name="ServiceComboSegmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItemDetail_ItemDetail">
+    <End Role="ServicePrice" Type="Self.ServicePrice" Multiplicity="1" />
+    <End Role="OrderServiceDetail" Type="Self.OrderServiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServicePrice">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderServiceDetail">
+        <PropertyRef Name="ServiceDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderServiceImage_ServiceRequiteImage">
+    <End Role="ServiceRequiteImage" Type="Self.ServiceRequiteImage" Multiplicity="0..1" />
+    <End Role="OrderServiceImage" Type="Self.OrderServiceImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceRequiteImage">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderServiceImage">
+        <PropertyRef Name="ServiceRequiteImageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductIm__Produ__2334397B">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductImage" Type="Self.ProductImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductImage">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductOr__Produ__42ACE4D4">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductOrderDetail" Type="Self.ProductOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductOrderDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductOr__Produ__43A1090D">
+    <End Role="ProductOrder" Type="Self.ProductOrder" Multiplicity="1" />
+    <End Role="ProductOrderDetail" Type="Self.ProductOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductOrderDetail">
+        <PropertyRef Name="ProductOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ServerBon__Servi__38EE7070">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="ServiceBonusCustomer" Type="Self.ServiceBonusCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServiceBonusCustomer">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ServiceRe__Servi__0CFADF99">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="ServiceRequiteImage" Type="Self.ServiceRequiteImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServiceRequiteImage">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemDetail_Item">
+    <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="ServicePrice" Type="Self.ServicePrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServicePrice">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceComboDetail_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="ServiceComboDetail" Type="Self.ServiceComboDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServiceComboDetail">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceImage_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="ServiceImage" Type="Self.ServiceImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServiceImage">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ItemCombo__ItemC__6166761E">
+    <End Role="ServiceCombo" Type="Self.ServiceCombo" Multiplicity="1" />
+    <End Role="ServiceComboSegment" Type="Self.ServiceComboSegment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceCombo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServiceComboSegment">
+        <PropertyRef Name="ServiceComboID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceComboDetail_ServiceCombo">
+    <End Role="ServiceCombo" Type="Self.ServiceCombo" Multiplicity="1" />
+    <End Role="ServiceComboDetail" Type="Self.ServiceComboDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceCombo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServiceComboDetail">
+        <PropertyRef Name="ServiceComboID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceImage_ServiceCombo">
+    <End Role="ServiceCombo" Type="Self.ServiceCombo" Multiplicity="0..1" />
+    <End Role="ServiceImage" Type="Self.ServiceImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceCombo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServiceImage">
+        <PropertyRef Name="ServiceComboID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CarrectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Agents" EntityType="Self.Agent" />
+    <EntitySet Name="AgentAreas" EntityType="Self.AgentArea" />
+    <EntitySet Name="AgentImages" EntityType="Self.AgentImage" />
+    <EntitySet Name="AppVersions" EntityType="Self.AppVersion" />
+    <EntitySet Name="Areas" EntityType="Self.Area" />
+    <EntitySet Name="Banks" EntityType="Self.Bank" />
+    <EntitySet Name="BankMembers" EntityType="Self.BankMember" />
+    <EntitySet Name="CallQualities" EntityType="Self.CallQuality" />
+    <EntitySet Name="CarBrands" EntityType="Self.CarBrand" />
+    <EntitySet Name="CarCustomers" EntityType="Self.CarCustomer" />
+    <EntitySet Name="CarImages" EntityType="Self.CarImage" />
+    <EntitySet Name="CarModels" EntityType="Self.CarModel" />
+    <EntitySet Name="CarSegments" EntityType="Self.CarSegment" />
+    <EntitySet Name="Carts" EntityType="Self.Cart" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="CategoryNews" EntityType="Self.CategoryNew" />
+    <EntitySet Name="ClassShifts" EntityType="Self.ClassShift" />
+    <EntitySet Name="Configs" EntityType="Self.Config" />
+    <EntitySet Name="ConfigCommissions" EntityType="Self.ConfigCommission" />
+    <EntitySet Name="Coupons" EntityType="Self.Coupon" />
+    <EntitySet Name="CouponCustomers" EntityType="Self.CouponCustomer" />
+    <EntitySet Name="CouponWashers" EntityType="Self.CouponWasher" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="CustomerLocations" EntityType="Self.CustomerLocation" />
+    <EntitySet Name="CustomerOffices" EntityType="Self.CustomerOffice" />
+    <EntitySet Name="CustomerRanks" EntityType="Self.CustomerRank" />
+    <EntitySet Name="CustomerRankServiceBonus" EntityType="Self.CustomerRankServiceBonu" />
+    <EntitySet Name="Days" EntityType="Self.Day" />
+    <EntitySet Name="DeviceHistoryLogins" EntityType="Self.DeviceHistoryLogin" />
+    <EntitySet Name="Districts" EntityType="Self.District" />
+    <EntitySet Name="HistoryRankingPoints" EntityType="Self.HistoryRankingPoint" />
+    <EntitySet Name="Introes" EntityType="Self.Intro" />
+    <EntitySet Name="MainServiceAdditionServices" EntityType="Self.MainServiceAdditionService" />
+    <EntitySet Name="Members" EntityType="Self.Member" />
+    <EntitySet Name="MembersTransactionHistories" EntityType="Self.MembersTransactionHistory" />
+    <EntitySet Name="News" EntityType="Self.News" />
+    <EntitySet Name="Notifications" EntityType="Self.Notification" />
+    <EntitySet Name="OrderServices" EntityType="Self.OrderService" />
+    <EntitySet Name="OrderServiceDetails" EntityType="Self.OrderServiceDetail" />
+    <EntitySet Name="OrderServiceImages" EntityType="Self.OrderServiceImage" />
+    <EntitySet Name="OrderServiceImageCars" EntityType="Self.OrderServiceImageCar" />
+    <EntitySet Name="PaymentInstructionNotes" EntityType="Self.PaymentInstructionNote" />
+    <EntitySet Name="Policies" EntityType="Self.Policy" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="ProductImages" EntityType="Self.ProductImage" />
+    <EntitySet Name="ProductOrders" EntityType="Self.ProductOrder" />
+    <EntitySet Name="ProductOrderDetails" EntityType="Self.ProductOrderDetail" />
+    <EntitySet Name="Promotions" EntityType="Self.Promotion" />
+    <EntitySet Name="Provinces" EntityType="Self.Province" />
+    <EntitySet Name="QAs" EntityType="Self.QA" />
+    <EntitySet Name="QACustomers" EntityType="Self.QACustomer" />
+    <EntitySet Name="Reasons" EntityType="Self.Reason" />
+    <EntitySet Name="RequestForAdmins" EntityType="Self.RequestForAdmin" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
+    <EntitySet Name="ServiceBonusCustomers" EntityType="Self.ServiceBonusCustomer" />
+    <EntitySet Name="ServiceComboes" EntityType="Self.ServiceCombo" />
+    <EntitySet Name="ServiceComboDetails" EntityType="Self.ServiceComboDetail" />
+    <EntitySet Name="ServiceComboSegments" EntityType="Self.ServiceComboSegment" />
+    <EntitySet Name="ServiceImages" EntityType="Self.ServiceImage" />
+    <EntitySet Name="ServicePrices" EntityType="Self.ServicePrice" />
+    <EntitySet Name="ServiceRequiteImages" EntityType="Self.ServiceRequiteImage" />
+    <EntitySet Name="Shifts" EntityType="Self.Shift" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Wallets" EntityType="Self.Wallet" />
+    <AssociationSet Name="FK__AgentArea__Agent__5F492382" Association="Self.FK__AgentArea__Agent__5F492382">
+      <End Role="Agent" EntitySet="Agents" />
+      <End Role="AgentArea" EntitySet="AgentAreas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AgentImag__Agent__6C23FBB3" Association="Self.FK__AgentImag__Agent__6C23FBB3">
+      <End Role="Agent" EntitySet="Agents" />
+      <End Role="AgentImage" EntitySet="AgentImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cart__WasherID__3B0BC30C" Association="Self.FK__Cart__WasherID__3B0BC30C">
+      <End Role="Agent" EntitySet="Agents" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderItem__Agent__71D1E811" Association="Self.FK__OrderItem__Agent__71D1E811">
+      <End Role="Agent" EntitySet="Agents" />
+      <End Role="OrderService" EntitySet="OrderServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agent_ConfigCommission" Association="Self.FK_Agent_ConfigCommission">
+      <End Role="ConfigCommission" EntitySet="ConfigCommissions" />
+      <End Role="Agent" EntitySet="Agents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CouponWasher_Agent" Association="Self.FK_CouponWasher_Agent">
+      <End Role="Agent" EntitySet="Agents" />
+      <End Role="CouponWasher" EntitySet="CouponWashers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_Agent" Association="Self.FK_Member_Agent">
+      <End Role="Agent" EntitySet="Agents" />
+      <End Role="Member" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductOrder_Agent" Association="Self.FK_ProductOrder_Agent">
+      <End Role="Agent" EntitySet="Agents" />
+      <End Role="ProductOrder" EntitySet="ProductOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AgentArea__AreaI__603D47BB" Association="Self.FK__AgentArea__AreaI__603D47BB">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="AgentArea" EntitySet="AgentAreas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Area__DistrictCo__589C25F3" Association="Self.FK__Area__DistrictCo__589C25F3">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="Area" EntitySet="Areas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItem_Area" Association="Self.FK_OrderItem_Area">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="OrderService" EntitySet="OrderServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BrankMemb__Brank__4885B9BB" Association="Self.FK__BrankMemb__Brank__4885B9BB">
+      <End Role="Bank" EntitySet="Banks" />
+      <End Role="BankMember" EntitySet="BankMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BankMembe__Membe__0697FACD" Association="Self.FK__BankMembe__Membe__0697FACD">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="BankMember" EntitySet="BankMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BankMembe__Membe__4C6B5938" Association="Self.FK__BankMembe__Membe__4C6B5938">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="BankMember" EntitySet="BankMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BrankMemb__Membe__4979DDF4" Association="Self.FK__BrankMemb__Membe__4979DDF4">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="BankMember" EntitySet="BankMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MembersTransactionHistory_BankMember" Association="Self.FK_MembersTransactionHistory_BankMember">
+      <End Role="BankMember" EntitySet="BankMembers" />
+      <End Role="MembersTransactionHistory" EntitySet="MembersTransactionHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarMode__CarBran__1DE57479" Association="Self.FK__CarMode__CarBran__1DE57479">
+      <End Role="CarBrand" EntitySet="CarBrands" />
+      <End Role="CarModel" EntitySet="CarModels" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarCustom__CarMo__37A5467C" Association="Self.FK__CarCustom__CarMo__37A5467C">
+      <End Role="CarModel" EntitySet="CarModels" />
+      <End Role="CarCustomer" EntitySet="CarCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarCustom__Custo__36B12243" Association="Self.FK__CarCustom__Custo__36B12243">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CarCustomer" EntitySet="CarCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarImage__CarCus__77DFC722" Association="Self.FK__CarImage__CarCus__77DFC722">
+      <End Role="CarCustomer" EntitySet="CarCustomers" />
+      <End Role="CarImage" EntitySet="CarImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_CarCustomer" Association="Self.FK_Customer_CarCustomer">
+      <End Role="CarCustomer" EntitySet="CarCustomers" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItem_CarCustomer" Association="Self.FK_OrderItem_CarCustomer">
+      <End Role="CarCustomer" EntitySet="CarCustomers" />
+      <End Role="OrderService" EntitySet="OrderServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarMode__CarSegm__1ED998B2" Association="Self.FK__CarMode__CarSegm__1ED998B2">
+      <End Role="CarSegment" EntitySet="CarSegments" />
+      <End Role="CarModel" EntitySet="CarModels" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ItemCombo__CarSe__634EBE90" Association="Self.FK__ItemCombo__CarSe__634EBE90">
+      <End Role="CarSegment" EntitySet="CarSegments" />
+      <End Role="ServiceComboSegment" EntitySet="ServiceComboSegments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ItemDetai__CarSe__339FAB6E" Association="Self.FK__ItemDetai__CarSe__339FAB6E">
+      <End Role="CarSegment" EntitySet="CarSegments" />
+      <End Role="ServicePrice" EntitySet="ServicePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cart__ProductID__3BFFE745" Association="Self.FK__Cart__ProductID__3BFFE745">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Categor__07C12930" Association="Self.FK__Product__Categor__07C12930">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__News__CategoryID__1699586C" Association="Self.FK__News__CategoryID__1699586C">
+      <End Role="CategoryNews" EntitySet="CategoryNews" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Days__ClasShiftI__02C769E9" Association="Self.FK__Days__ClasShiftI__02C769E9">
+      <End Role="ClassShift" EntitySet="ClassShifts" />
+      <End Role="Days" EntitySet="Days" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shift_ClassShift" Association="Self.FK_Shift_ClassShift">
+      <End Role="ClassShift" EntitySet="ClassShifts" />
+      <End Role="Shift" EntitySet="Shifts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CouponCus__Coupo__54CB950F" Association="Self.FK__CouponCus__Coupo__54CB950F">
+      <End Role="Coupon" EntitySet="Coupons" />
+      <End Role="CouponCustomer" EntitySet="CouponCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderItem__Coupo__74AE54BC" Association="Self.FK__OrderItem__Coupo__74AE54BC">
+      <End Role="Coupon" EntitySet="Coupons" />
+      <End Role="OrderService" EntitySet="OrderServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CouponWasher_Coupon" Association="Self.FK_CouponWasher_Coupon">
+      <End Role="Coupon" EntitySet="Coupons" />
+      <End Role="CouponWasher" EntitySet="CouponWashers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductOrder_Coupon" Association="Self.FK_ProductOrder_Coupon">
+      <End Role="Coupon" EntitySet="Coupons" />
+      <End Role="ProductOrder" EntitySet="ProductOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CouponCus__Custo__53D770D6" Association="Self.FK__CouponCus__Custo__53D770D6">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CouponCustomer" EntitySet="CouponCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerL__Custo__25E688F4" Association="Self.FK__CustomerL__Custo__25E688F4">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CustomerLocation" EntitySet="CustomerLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerO__Custo__10216507" Association="Self.FK__CustomerO__Custo__10216507">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CustomerOffice" EntitySet="CustomerOffices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HistoryRa__Custo__6F7F8B4B" Association="Self.FK__HistoryRa__Custo__6F7F8B4B">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="HistoryRankingPoint" EntitySet="HistoryRankingPoints" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderItem__Custo__70DDC3D8" Association="Self.FK__OrderItem__Custo__70DDC3D8">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="OrderService" EntitySet="OrderServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ServerBon__Custo__370627FE" Association="Self.FK__ServerBon__Custo__370627FE">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="ServiceBonusCustomer" EntitySet="ServiceBonusCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_CustomerRank" Association="Self.FK_Customer_CustomerRank">
+      <End Role="CustomerRank" EntitySet="CustomerRanks" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_District" Association="Self.FK_Customer_District">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Province" Association="Self.FK_Customer_Province">
+      <End Role="Province" EntitySet="Provinces" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_Customer" Association="Self.FK_Member_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Member" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerO__Custo__10216337" Association="Self.FK__CustomerO__Custo__10216337">
+      <End Role="CustomerOffice" EntitySet="CustomerOffices" />
+      <End Role="OrderService" EntitySet="OrderServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerR__RankI__4CF5691D" Association="Self.FK__CustomerR__RankI__4CF5691D">
+      <End Role="CustomerRank" EntitySet="CustomerRanks" />
+      <End Role="CustomerRankServiceBonus" EntitySet="CustomerRankServiceBonus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ServerBon__RankI__37FA4C37" Association="Self.FK__ServerBon__RankI__37FA4C37">
+      <End Role="CustomerRank" EntitySet="CustomerRanks" />
+      <End Role="ServiceBonusCustomer" EntitySet="ServiceBonusCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerR__Servi__01D345B0" Association="Self.FK__CustomerR__Servi__01D345B0">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="CustomerRankServiceBonus" EntitySet="CustomerRankServiceBonus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceHistoryLogin_Member" Association="Self.FK_DeviceHistoryLogin_Member">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="DeviceHistoryLogin" EntitySet="DeviceHistoryLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_District_Province" Association="Self.FK_District_Province">
+      <End Role="Province" EntitySet="Provinces" />
+      <End Role="District" EntitySet="Districts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MainServi__Addit__05A3D694" Association="Self.FK__MainServi__Addit__05A3D694">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="MainServiceAdditionService" EntitySet="MainServiceAdditionServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MainServi__Addit__0697FACD" Association="Self.FK__MainServi__Addit__0697FACD">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="MainServiceAdditionService" EntitySet="MainServiceAdditionServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MainServi__Addit__078C1F06" Association="Self.FK__MainServi__Addit__078C1F06">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="MainServiceAdditionService" EntitySet="MainServiceAdditionServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MainServi__Addit__2704CA5F" Association="Self.FK__MainServi__Addit__2704CA5F">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="MainServiceAdditionService" EntitySet="MainServiceAdditionServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MainServi__Addit__27F8EE98" Association="Self.FK__MainServi__Addit__27F8EE98">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="MainServiceAdditionService" EntitySet="MainServiceAdditionServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MainServi__MainS__0880433F" Association="Self.FK__MainServi__MainS__0880433F">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="MainServiceAdditionService" EntitySet="MainServiceAdditionServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MainServi__MainS__09746778" Association="Self.FK__MainServi__MainS__09746778">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="MainServiceAdditionService" EntitySet="MainServiceAdditionServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MainServi__MainS__2AD55B43" Association="Self.FK__MainServi__MainS__2AD55B43">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="MainServiceAdditionService" EntitySet="MainServiceAdditionServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MainServi__MainS__2BC97F7C" Association="Self.FK__MainServi__MainS__2BC97F7C">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="MainServiceAdditionService" EntitySet="MainServiceAdditionServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MembersPo__Membe__2BC97F7C" Association="Self.FK__MembersPo__Membe__2BC97F7C">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="MembersTransactionHistory" EntitySet="MembersTransactionHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__Membe__7A672E12" Association="Self.FK__Notificat__Membe__7A672E12">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Notification" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wallet__MemberID__44FF419A" Association="Self.FK__Wallet__MemberID__44FF419A">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Wallet" EntitySet="Wallets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequestForAdmin_Member" Association="Self.FK_RequestForAdmin_Member">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="RequestForAdmin" EntitySet="RequestForAdmins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MembersPo__Order__2CBDA3B5" Association="Self.FK__MembersPo__Order__2CBDA3B5">
+      <End Role="OrderService" EntitySet="OrderServices" />
+      <End Role="MembersTransactionHistory" EntitySet="MembersTransactionHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MembersPo__Produ__2DB1C7EE" Association="Self.FK__MembersPo__Produ__2DB1C7EE">
+      <End Role="ProductOrder" EntitySet="ProductOrders" />
+      <End Role="MembersTransactionHistory" EntitySet="MembersTransactionHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MembersPointHistory_Wallet" Association="Self.FK_MembersPointHistory_Wallet">
+      <End Role="Wallet" EntitySet="Wallets" />
+      <End Role="MembersTransactionHistory" EntitySet="MembersTransactionHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Promotion__NewsI__4321E620" Association="Self.FK__Promotion__NewsI__4321E620">
+      <End Role="News" EntitySet="News" />
+      <End Role="Promotion" EntitySet="Promotions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_News_User" Association="Self.FK_News_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notification_News" Association="Self.FK_Notification_News">
+      <End Role="News" EntitySet="News" />
+      <End Role="Notification" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notification_OrderItem" Association="Self.FK_Notification_OrderItem">
+      <End Role="OrderService" EntitySet="OrderServices" />
+      <End Role="Notification" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notification_ProductOrder" Association="Self.FK_Notification_ProductOrder">
+      <End Role="ProductOrder" EntitySet="ProductOrders" />
+      <End Role="Notification" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderItem__Order__231F2AE2" Association="Self.FK__OrderItem__Order__231F2AE2">
+      <End Role="OrderService" EntitySet="OrderServices" />
+      <End Role="OrderServiceImage" EntitySet="OrderServiceImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderItem__Order__6EC0713C" Association="Self.FK__OrderItem__Order__6EC0713C">
+      <End Role="OrderService" EntitySet="OrderServices" />
+      <End Role="OrderServiceDetail" EntitySet="OrderServiceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderServ__Order__4870AB22" Association="Self.FK__OrderServ__Order__4870AB22">
+      <End Role="OrderService" EntitySet="OrderServices" />
+      <End Role="OrderServiceImageCar" EntitySet="OrderServiceImageCars" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RequestFo__Order__4F1DA8B1" Association="Self.FK__RequestFo__Order__4F1DA8B1">
+      <End Role="OrderService" EntitySet="OrderServices" />
+      <End Role="RequestForAdmin" EntitySet="RequestForAdmins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderService_ServiceComboSegment" Association="Self.FK_OrderService_ServiceComboSegment">
+      <End Role="ServiceComboSegment" EntitySet="ServiceComboSegments" />
+      <End Role="OrderService" EntitySet="OrderServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItemDetail_ItemDetail" Association="Self.FK_OrderItemDetail_ItemDetail">
+      <End Role="ServicePrice" EntitySet="ServicePrices" />
+      <End Role="OrderServiceDetail" EntitySet="OrderServiceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderServiceImage_ServiceRequiteImage" Association="Self.FK_OrderServiceImage_ServiceRequiteImage">
+      <End Role="ServiceRequiteImage" EntitySet="ServiceRequiteImages" />
+      <End Role="OrderServiceImage" EntitySet="OrderServiceImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductIm__Produ__2334397B" Association="Self.FK__ProductIm__Produ__2334397B">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductImage" EntitySet="ProductImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductOr__Produ__42ACE4D4" Association="Self.FK__ProductOr__Produ__42ACE4D4">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductOrderDetail" EntitySet="ProductOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductOr__Produ__43A1090D" Association="Self.FK__ProductOr__Produ__43A1090D">
+      <End Role="ProductOrder" EntitySet="ProductOrders" />
+      <End Role="ProductOrderDetail" EntitySet="ProductOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ServerBon__Servi__38EE7070" Association="Self.FK__ServerBon__Servi__38EE7070">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="ServiceBonusCustomer" EntitySet="ServiceBonusCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ServiceRe__Servi__0CFADF99" Association="Self.FK__ServiceRe__Servi__0CFADF99">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="ServiceRequiteImage" EntitySet="ServiceRequiteImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemDetail_Item" Association="Self.FK_ItemDetail_Item">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="ServicePrice" EntitySet="ServicePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceComboDetail_Service" Association="Self.FK_ServiceComboDetail_Service">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="ServiceComboDetail" EntitySet="ServiceComboDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceImage_Service" Association="Self.FK_ServiceImage_Service">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="ServiceImage" EntitySet="ServiceImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ItemCombo__ItemC__6166761E" Association="Self.FK__ItemCombo__ItemC__6166761E">
+      <End Role="ServiceCombo" EntitySet="ServiceComboes" />
+      <End Role="ServiceComboSegment" EntitySet="ServiceComboSegments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceComboDetail_ServiceCombo" Association="Self.FK_ServiceComboDetail_ServiceCombo">
+      <End Role="ServiceCombo" EntitySet="ServiceComboes" />
+      <End Role="ServiceComboDetail" EntitySet="ServiceComboDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceImage_ServiceCombo" Association="Self.FK_ServiceImage_ServiceCombo">
+      <End Role="ServiceCombo" EntitySet="ServiceComboes" />
+      <End Role="ServiceImage" EntitySet="ServiceImages" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

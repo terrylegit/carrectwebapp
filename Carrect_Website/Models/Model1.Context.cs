@@ -87,6 +87,7 @@ namespace Carrect_Website.Models
         public virtual DbSet<ServicePrice> ServicePrices { get; set; }
         public virtual DbSet<ServiceRequiteImage> ServiceRequiteImages { get; set; }
         public virtual DbSet<Shift> Shifts { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Wallet> Wallets { get; set; }
     }

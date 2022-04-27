@@ -882,6 +882,16 @@
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
           <Property Name="ClassShiftID" Type="int" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="ID" />
@@ -2041,6 +2051,7 @@
           <EntitySet Name="ServicePrice" EntityType="Self.ServicePrice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServiceRequiteImage" EntityType="Self.ServiceRequiteImage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shift" EntityType="Self.Shift" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wallet" EntityType="Self.Wallet" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__AgentArea__Agent__5F492382" Association="Self.FK__AgentArea__Agent__5F492382">
@@ -3457,6 +3468,16 @@
           <Property Name="ClassShiftID" Type="Int32" />
           <NavigationProperty Name="ClassShift" Relationship="Self.FK_Shift_ClassShift" FromRole="Shift" ToRole="ClassShift" />
         </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="ID" />
@@ -4619,6 +4640,7 @@
           <EntitySet Name="ServicePrices" EntityType="Self.ServicePrice" />
           <EntitySet Name="ServiceRequiteImages" EntityType="Self.ServiceRequiteImage" />
           <EntitySet Name="Shifts" EntityType="Self.Shift" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Wallets" EntityType="Self.Wallet" />
           <AssociationSet Name="FK__AgentArea__Agent__5F492382" Association="Self.FK__AgentArea__Agent__5F492382">
@@ -5920,6 +5942,17 @@
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
                 <ScalarProperty Name="ClassShiftID" ColumnName="ClassShiftID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CarrectModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

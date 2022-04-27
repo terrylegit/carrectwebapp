@@ -1,4 +1,7 @@
 ﻿<!-- ======= Hero Section ======= -->
+<link href="~/MyExtensions/css/pickadate/pickadate.css" rel="stylesheet" />
+<link href="~/MyExtensions/css/daterange/daterangepicker.css" rel="stylesheet" />
+<link href="~/MyExtensions/css/components.css" rel="stylesheet" />
 <section id="hero" class="d-flex align-items-center">
     <div class="container">
         <div class="row mybackground">
@@ -34,7 +37,20 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="form_datlich">                            
+                        <fieldset class="form-group position-relative has-icon-left">
+                            <input type="text" class="form-control pickadate" placeholder="Select Date">
+                            <div class="form-control-position">
+                                <i class='bx bx-calendar'></i>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-group position-relative has-icon-left">
+                            <input type="text" class="form-control pickatime" placeholder="Select Time">
+                            <div class="form-control-position">
+                                <i class='bx bx-history'></i>
+                            </div>
+                        </fieldset>
+                        <div class="form_datlich">
                             <div class="d-flex justify-content-center">
                                 <h1 class="d-flex justify-content-center" style="color: #003E5F; margin-bottom: 0px">
                                     THÔNG TIN ĐẶT LỊCH
@@ -50,12 +66,32 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form_datlich_inputbox">
-                                            <input placeholder="Chọn ngày" /> <i class='bx bx-calendar'></i>
+                                            <fieldset class="form-group position-relative has-icon-left">
+                                                <input type="text" class="form-control pickadate" placeholder="Select Date">
+                                                <div class="form-control-position">
+                                                    <i class='bx bx-calendar'></i>
+                                                </div>
+                                            </fieldset>
+
+                                            <!--<div class="input-group date">
+                            <fieldset class="form-group position-relative has-icon-left">
+                                <input type="text" class="form-control pickadate" placeholder="Select Date">
+                                <div class="form-control-position">
+                                    <i class='bx bx-calendar'></i>
+                                </div>
+                            </fieldset>-->
+                                            @*<input type="text" placeholder="Chọn ngày"><span class="input-group-addon"><i class='bx bx-calendar'></i></span>*@
+                                            <!--</div>-->
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form_datlich_inputbox">
-                                            <input placeholder="Chọn giờ" /><i class='bx bx-time-five'></i>
+                                            <input type="text" class="form-control pickatime" placeholder="Select Time">
+                                            <div class="form-control-position">
+                                                <i class='bx bx-history'></i>
+                                            </div>
+                                            @*<input placeholder="Chọn giờ" /><i class='bx bx-time-five'></i>*@
+
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +103,7 @@
                         </div>
                         <div class="d-flex justify-content-between btnnextprev">
                             <div style=" width: 150px; border-radius: 50px; text-align: center; ">
-                                <a class="d-flex align-items-center" onclick="fetchStep1()" href="#" style="color: #95ACA9">
+                                <a class="d-flex align-items-center" onclick="back()" href="#" style="color: #95ACA9">
                                     <i class="fa fa-angle-double-left fa-2x"></i>
                                     <strong class="d-flex align-items-center">
                                         &nbsp &nbsp Trở về
@@ -75,20 +111,20 @@
                                 </a>
                             </div>
                             <div style="outline:2px solid #003E5F;border: 1.5px solid #fff; width: 150px; border-radius: 50px; text-align: center; background: #003E5F; ">
-                                <a class="d-flex align-items-center" onclick="fetchStep2()" href="#" style="color: #fff">
+                                <a class="d-flex align-items-center" onclick="next()" href="#" style="color: #fff">
                                     <strong class="d-flex align-items-center">
                                         <i class="fa fa-angle-double-right fa-2x" style="padding-left:10px; padding-right:15px"></i>
                                         TIẾP THEO
                                     </strong>
                                 </a>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-  
+
     </div>
 
 </section><!-- End Hero -->
@@ -115,7 +151,24 @@
         top: 250px;
         transform: translate(0px,-50%);
     }
-
 </style>
 
 
+@*<link href="~/assets/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <script src="~/assets/dist/js/bootstrap-datepicker.min.js"></script>*@
+<script src="~/MyExtensions/pickers/pickadate/picker.js"></script>
+<script src="~/MyExtensions/pickers/pickadate/picker.date.js"></script>
+<script src="~/MyExtensions/pickers/pickadate/picker.time.js"></script>
+<script src="~/MyExtensions/pickers/pickadate/legacy.js"></script>
+<script src="~/MyExtensions/extensions/moment.min.js"></script>
+<script src="~/MyExtensions/pickers/daterange/daterangepicker.js"></script>
+<script src="~/MyExtensions/components.js"></script>
+<script src="~/MyExtensions/dateTime/pick-a-datetime.js"></script>
+<script>
+    $('.input-group.date').datepicker({
+    });
+
+    $('#datetimepicker3').datetimepicker({
+        format: 'LT'
+    });
+</script>

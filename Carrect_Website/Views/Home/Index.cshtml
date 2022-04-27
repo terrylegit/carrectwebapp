@@ -5,29 +5,50 @@
 <div id="fetchInfoBooking">
 </div>
 <div id="nextstep" data-aos="fade-up">
-    <div>
+    <div id="tab1" class="tab-chung">
         @Html.Action("BookingDetails", "Home")
     </div>
-    <div>
+    <div id="tab2" class="tab-chung">
         @Html.Action("InputCarDetails", "Home")
     </div>
-    <div>
+    <div id="tab3" class="tab-chung">
         @Html.Action("ChooseServices", "Home")
     </div>
-    <div>
+    <div id="tab4" class="tab-chung">
         @Html.Action("ReviewBillsDiscount", "Home")
     </div>
-    <div>
+    <div id="tab5" class="tab-chung">
         @Html.Action("ReviewBillsDiscount", "Home")
+    </div>
+    <div id="tab6" class="tab-chung">
+        @Html.Action("WaitScreen", "Home")
+    </div>
+    <div id="tab7" class="tab-chung">
+        @Html.Action("SuccessBooking", "Home")
     </div>
 </div>
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <script>
+    $(".tab-chung").hide();
+    $("#tab1").show();
     fetchMenuTop1();
-   // fetchStep2()
-     fetchPhoneInputForm();
+    fetchStep1();
+     /*fetchPhoneInputForm();*/
+    var step = 1;
+    function next() {
+        step += 1;
+        $(".tab-chung").hide();
+        $("#tab" + step).show();
+    }
+    function back() {
+        if (step>1) {
+            step -= 1;
+            $(".tab-chung").hide();
+            $("#tab" + step).show();
+        }
+    }
 
     function fetchMenuTop1() {
         $.ajax({
@@ -79,7 +100,6 @@
             },
         });
     }
-    $("#nextstep").hide();
     function fetchStep1() {
         $("#fetchInfoBooking").hide();
         $("#nextstep").show();
