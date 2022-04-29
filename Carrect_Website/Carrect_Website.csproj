@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\testController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -372,6 +373,7 @@
     <Content Include="assets\img\testimonials\testimonials-3.jpg" />
     <Content Include="assets\img\testimonials\testimonials-4.jpg" />
     <Content Include="assets\img\testimonials\testimonials-5.jpg" />
+    <Content Include="assets\js\carrect.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\vendor\aos\aos.css" />
     <Content Include="assets\vendor\aos\aos.js" />
@@ -440,6 +442,7 @@
     <Content Include="Content\myfonts.css" />
     <Content Include="Content\Responsive.css" />
     <Content Include="favicon.ico" />
+    <Content Include="assets\js\firebaseOTP.js" />
     <Content Include="fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web\css\all.css" />
     <Content Include="fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web\css\all.min.css" />
     <Content Include="fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web\css\brands.css" />
@@ -2627,6 +2630,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="testOTP.css" />
+    <Content Include="testOTP.js" />
     <Content Include="Upload\logo_carrect.png" />
     <Content Include="Upload\master.png" />
     <Content Include="Upload\timkiemchuyengiaPNG.PNG" />
@@ -2656,6 +2661,9 @@
     <Content Include="Views\Home\MenuTop_bk1.cshtml" />
     <Content Include="Views\Home\MenuTop2.cshtml" />
     <Content Include="Views\Ajax\LoadCarModel.cshtml" />
+    <Content Include="Views\test\Index.cshtml" />
+    <Content Include="Views\test\Index2.cshtml" />
+    <Content Include="Views\test\Index3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

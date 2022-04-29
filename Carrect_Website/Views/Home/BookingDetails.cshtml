@@ -1,7 +1,5 @@
 ﻿<!-- ======= Hero Section ======= -->
-<link href="~/MyExtensions/css/pickadate/pickadate.css" rel="stylesheet" />
-<link href="~/MyExtensions/css/daterange/daterangepicker.css" rel="stylesheet" />
-<link href="~/MyExtensions/css/components.css" rel="stylesheet" />
+
 <section id="hero" class="d-flex align-items-center">
     <div class="container">
         <div class="row mybackground">
@@ -37,19 +35,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <fieldset class="form-group position-relative has-icon-left">
-                            <input type="text" class="form-control pickadate" placeholder="Select Date">
-                            <div class="form-control-position">
-                                <i class='bx bx-calendar'></i>
-                            </div>
-                        </fieldset>
 
-                        <fieldset class="form-group position-relative has-icon-left">
-                            <input type="text" class="form-control pickatime" placeholder="Select Time">
-                            <div class="form-control-position">
-                                <i class='bx bx-history'></i>
-                            </div>
-                        </fieldset>
                         <div class="form_datlich">
                             <div class="d-flex justify-content-center">
                                 <h1 class="d-flex justify-content-center" style="color: #003E5F; margin-bottom: 0px">
@@ -66,22 +52,9 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form_datlich_inputbox">
-                                            <fieldset class="form-group position-relative has-icon-left">
-                                                <input type="text" class="form-control pickadate" placeholder="Select Date">
-                                                <div class="form-control-position">
-                                                    <i class='bx bx-calendar'></i>
-                                                </div>
-                                            </fieldset>
-
-                                            <!--<div class="input-group date">
-                            <fieldset class="form-group position-relative has-icon-left">
-                                <input type="text" class="form-control pickadate" placeholder="Select Date">
-                                <div class="form-control-position">
-                                    <i class='bx bx-calendar'></i>
-                                </div>
-                            </fieldset>-->
-                                            @*<input type="text" placeholder="Chọn ngày"><span class="input-group-addon"><i class='bx bx-calendar'></i></span>*@
-                                            <!--</div>-->
+                 
+                                            <input type="text" placeholder="Chọn ngày"><span class="input-group-addon"><i class='bx bx-calendar'></i></span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -156,14 +129,7 @@
 
 @*<link href="~/assets/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
     <script src="~/assets/dist/js/bootstrap-datepicker.min.js"></script>*@
-<script src="~/MyExtensions/pickers/pickadate/picker.js"></script>
-<script src="~/MyExtensions/pickers/pickadate/picker.date.js"></script>
-<script src="~/MyExtensions/pickers/pickadate/picker.time.js"></script>
-<script src="~/MyExtensions/pickers/pickadate/legacy.js"></script>
-<script src="~/MyExtensions/extensions/moment.min.js"></script>
-<script src="~/MyExtensions/pickers/daterange/daterangepicker.js"></script>
-<script src="~/MyExtensions/components.js"></script>
-<script src="~/MyExtensions/dateTime/pick-a-datetime.js"></script>
+
 <script>
     $('.input-group.date').datepicker({
     });

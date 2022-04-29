@@ -1,5 +1,6 @@
 ﻿@*//------------------------------*@
 
+
 <div id="fetchMenuTop">
 </div>
 <div id="fetchInfoBooking">
@@ -34,8 +35,9 @@
     $(".tab-chung").hide();
     $("#tab1").show();
     fetchMenuTop1();
-    fetchStep1();
-     /*fetchPhoneInputForm();*/
+    /*fetchStep1();*/
+    fetchPhoneInputForm();
+    /*fetchOTPAuthentication()*/
     var step = 1;
     function next() {
         step += 1;
@@ -43,7 +45,7 @@
         $("#tab" + step).show();
     }
     function back() {
-        if (step>1) {
+        if (step > 1) {
             step -= 1;
             $(".tab-chung").hide();
             $("#tab" + step).show();
@@ -101,8 +103,11 @@
         });
     }
     function fetchStep1() {
-        $("#fetchInfoBooking").hide();
-        $("#nextstep").show();
+
+
+        //$("#fetchInfoBooking").hide();
+        //$("#nextstep").show();
+        //----------------------------------------------------------
         //$.ajax({
         //    type: "POST",
         //    url: '/Home/BookingDetails',
@@ -114,7 +119,7 @@
         //    },
         //});
     }
-    function fetchStep2() { 
+    function fetchStep2() {
         $.ajax({
             type: "POST",
             url: '/Home/InputCarDetails',
@@ -175,6 +180,95 @@
             success: function (res) {
                 $('#fetchInfoBooking').html(res);
             },
+        });
+    }
+</script>
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+@*<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>*@
+
+<script type="module">
+    //import { getAuth, RecaptchaVerifier} from "./node_modules/firebase/auth";
+    import { getAuth, RecaptchaVerifier } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js';
+    const auth = getAuth();
+
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+        'size': 'invisible',
+        'callback': (response) => {                        
+            phoneAuth();
+        }
+    }, auth);
+
+
+    recaptchaVerifier.render().then((widgetId) => {
+        window.recaptchaWidgetId = widgetId;
+    });
+
+    // Your web app's Firebase configuration    
+    const firebaseConfig = {
+        apiKey: "AIzaSyAY_B_twz__hzFOWBR9bwvtUYZvc85GqFI",
+        authDomain: "carrect-5499e.firebaseapp.com",
+        projectId: "carrect-5499e",
+        storageBucket: "carrect-5499e.appspot.com",
+        messagingSenderId: "615884581774",
+        appId: "1:615884581774:web:9f5199fd7cd2c1d689d2df",
+        measurementId: "G-FGX2D3DT5R"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    window.onload = function () {        
+        render();
+    };
+    
+    function render() {        
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+            'size': 'invisible',
+            'callback': (response) => {                          
+                phoneAuth();
+            }
+        }, auth);
+
+        //recaptchaVerifier.render().then((widgetId) => {
+        //    window.recaptchaWidgetId = widgetId;
+        //});
+
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+        recaptchaVerifier.render();
+    }
+
+    function phoneAuth() {        
+        //get the number
+        var number = document.getElementById('ip-phonenumber').value;
+
+        //phone number authentication function of firebase
+        //it takes two parameter first one is number,,,second one is recaptcha
+        firebase.auth().signInWithPhoneNumber(auth,number, window.recaptchaVerifier).then(function (confirmationResult) {
+            //s is in lowercase
+            window.confirmationResult = confirmationResult;
+            coderesult = confirmationResult;
+            console.log(coderesult);
+            alert("Message sent");
+            fetchOTPAuthentication();
+        }).catch(function (error) {
+            alert(error.message);
+        });
+
+    }
+    function codeverify() {
+        var code = '';
+        $('input[name="ip-otp"]').each(function () {
+            code += $(this).val();
+            console.log(code);
+        });
+
+        coderesult.confirm(code).then(function (result) {
+            alert("Successfully registered");
+            var user = result.user;
+            console.log(user);
+        }).catch(function (error) {
+            alert(error.message);
         });
     }
 </script>
